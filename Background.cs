@@ -26,7 +26,7 @@ namespace StorybrewScripts
             var bitmap = GetMapsetBitmap(BackgroundPath);
             var bg = GetLayer("").CreateSprite(BackgroundPath, OsbOrigin.Centre);
             bg.Scale(StartTime, 480.0f / bitmap.Height);
-            bg.Fade(StartTime - 500, StartTime, 0, Opacity);
+            bg.Fade(StartTime, StartTime, 0, Opacity);
             bg.Fade(EndTime, EndTime + 500, Opacity, 0);
         }
     }

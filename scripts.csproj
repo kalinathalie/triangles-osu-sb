@@ -53,6 +53,11 @@
   -->
   <ItemGroup>
     <Compile Include="Background.cs" />
+    <Compile Include="Particles.cs" />
+    <Compile Include="Welcome.cs" />
+    <Compile Include="WelcomeLogo.cs" />
+    <Compile Include="WelcomeParticles.cs" />
+    <Compile Include="WelcomeSymbols.cs" />
   </ItemGroup>
   <ItemGroup />
 </Project>
