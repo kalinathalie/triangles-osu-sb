@@ -1,10 +1,308 @@
 [Events]
 //Background and Video events
 //Storyboard Layer 0 (Background)
-Sprite,Background,Centre,"bg.jpg",320,240
- S,0,0,,0.3333333
- F,0,-500,0,0,0.2
- F,0,123011,123511,0.2,0
+Sprite,Background,Centre,"sb/bg4.jpg",320,240
+ S,0,3011,,0.625
+ F,0,3011,,0,0.5
+ F,0,24011,24511,0.5,0
+Sprite,Background,Centre,"sb/lyrics/0077.png",306.25,232.5
+ S,0,200,,0.5
+ F,0,200,,0,1
+ F,0,400,,1,0
+Sprite,Background,Centre,"sb/lyrics/0065.png",320.5,232.5
+ S,0,200,,0.5
+ F,0,200,,0,1
+ F,0,400,,1,0
+Sprite,Background,Centre,"sb/lyrics/006c.png",330.25,230.75
+ S,0,200,,0.5
+ F,0,200,,0,1
+ F,0,400,,1,0
+Sprite,Background,Centre,"sb/lyrics/0077.png",285.5,232.5
+ S,0,400,,0.5
+ F,0,400,,0,1
+ F,0,667,,1,0
+Sprite,Background,Centre,"sb/lyrics/0065.png",299.75,232.5
+ S,0,400,,0.5
+ F,0,400,,0,1
+ F,0,667,,1,0
+Sprite,Background,Centre,"sb/lyrics/006c.png",309.5,230.75
+ S,0,400,,0.5
+ F,0,400,,0,1
+ F,0,667,,1,0
+Sprite,Background,Centre,"sb/lyrics/0063.png",318.5,232.25
+ S,0,400,,0.5
+ F,0,400,,0,1
+ F,0,667,,1,0
+Sprite,Background,Centre,"sb/lyrics/006f.png",330.25,232.75
+ S,0,400,,0.5
+ F,0,400,,0,1
+ F,0,667,,1,0
+Sprite,Background,Centre,"sb/lyrics/006d.png",345.25,232.5
+ S,0,400,,0.5
+ F,0,400,,0,1
+ F,0,667,,1,0
+Sprite,Background,Centre,"sb/lyrics/0065.png",360.25,232.5
+ S,0,400,,0.5
+ F,0,400,,0,1
+ F,0,667,,1,0
+Sprite,Background,Centre,"sb/lyrics/0077.png",274.75,232.5
+ S,0,667,,0.5
+ F,0,667,,0,1
+ F,0,855,,1,0
+Sprite,Background,Centre,"sb/lyrics/0065.png",289,232.5
+ S,0,667,,0.5
+ F,0,667,,0,1
+ F,0,855,,1,0
+Sprite,Background,Centre,"sb/lyrics/006c.png",298.75,230.75
+ S,0,667,,0.5
+ F,0,667,,0,1
+ F,0,855,,1,0
+Sprite,Background,Centre,"sb/lyrics/0063.png",307.75,232.25
+ S,0,667,,0.5
+ F,0,667,,0,1
+ F,0,855,,1,0
+Sprite,Background,Centre,"sb/lyrics/006f.png",319.5,232.75
+ S,0,667,,0.5
+ F,0,667,,0,1
+ F,0,855,,1,0
+Sprite,Background,Centre,"sb/lyrics/006d.png",334.5,232.5
+ S,0,667,,0.5
+ F,0,667,,0,1
+ F,0,855,,1,0
+Sprite,Background,Centre,"sb/lyrics/0065.png",349.5,232.5
+ S,0,667,,0.5
+ F,0,667,,0,1
+ F,0,855,,1,0
+Sprite,Background,Centre,"sb/lyrics/0074.png",369,231.25
+ S,0,667,,0.5
+ F,0,667,,0,1
+ F,0,855,,1,0
+Sprite,Background,Centre,"sb/lyrics/006f.png",380,232.75
+ S,0,667,,0.5
+ F,0,667,,0,1
+ F,0,855,,1,0
+Sprite,Background,Centre,"sb/lyrics/0077.png",0,232.5
+ S,0,855,,0.5
+ F,0,855,,0,1
+ F,0,1511,,1,0
+ S,0,856,1511,0.5,0.55
+ MX,0,856,1511,255.5,212
+Sprite,Background,Centre,"sb/lyrics/0065.png",0,232.5
+ S,0,855,,0.5
+ F,0,855,,0,1
+ F,0,1511,,1,0
+ S,0,856,1511,0.5,0.55
+ MX,0,856,1511,269.75,235
+Sprite,Background,Centre,"sb/lyrics/006c.png",0,230.75
+ S,0,855,,0.5
+ F,0,855,,0,1
+ F,0,1511,,1,0
+ S,0,856,1511,0.5,0.55
+ MX,0,856,1511,279.5,254.5
+Sprite,Background,Centre,"sb/lyrics/0063.png",0,232.25
+ S,0,855,,0.5
+ F,0,855,,0,1
+ F,0,1511,,1,0
+ S,0,856,1511,0.5,0.55
+ MX,0,856,1511,288.5,268.5
+Sprite,Background,Centre,"sb/lyrics/006f.png",0,232.75
+ S,0,855,,0.5
+ F,0,855,,0,1
+ F,0,1511,,1,0
+ S,0,856,1511,0.5,0.55
+ MX,0,856,1511,300.25,286.5
+Sprite,Background,Centre,"sb/lyrics/006d.png",0,232.5
+ S,0,855,,0.5
+ F,0,855,,0,1
+ F,0,1511,,1,0
+ S,0,856,1511,0.5,0.55
+ MX,0,856,1511,315.25,306
+Sprite,Background,Centre,"sb/lyrics/0065.png",0,232.5
+ S,0,855,,0.5
+ F,0,855,,0,1
+ F,0,1511,,1,0
+ S,0,856,1511,0.5,0.55
+ MX,0,856,1511,330.25,330.5
+Sprite,Background,Centre,"sb/lyrics/0074.png",0,231.25
+ S,0,855,,0.5
+ F,0,855,,0,1
+ F,0,1511,,1,0
+ S,0,856,1511,0.5,0.55
+ MX,0,856,1511,349.75,358.5
+Sprite,Background,Centre,"sb/lyrics/006f.png",0,232.75
+ S,0,855,,0.5
+ F,0,855,,0,1
+ F,0,1511,,1,0
+ S,0,856,1511,0.5,0.55
+ MX,0,856,1511,360.75,375
+Sprite,Background,Centre,"sb/lyrics/006f.png",0,232.75
+ S,0,855,,0.5
+ F,0,855,,0,1
+ F,0,1511,,1,0
+ S,0,856,1511,0.5,0.55
+ MX,0,856,1511,381.75,403
+Sprite,Background,Centre,"sb/lyrics/0073.png",0,232.75
+ S,0,855,,0.5
+ F,0,855,,0,1
+ F,0,1511,,1,0
+ S,0,856,1511,0.5,0.55
+ MX,0,856,1511,393.5,422.5
+Sprite,Background,Centre,"sb/lyrics/0075.png",0,232.75
+ S,0,855,,0.5
+ F,0,855,,0,1
+ F,0,1511,,1,0
+ S,0,856,1511,0.5,0.55
+ MX,0,856,1511,405.25,440.5
+Sprite,Background,Centre,"sb/lyrics/0021.png",0,231
+ S,0,855,,0.5
+ F,0,855,,0,1
+ F,0,1511,,1,0
+ S,0,856,1511,0.5,0.55
+ MX,0,856,1511,416,460
+Sprite,Background,Centre,"sb/f/0041.png",0,228.5
+ S,0,1511,,0.25
+ F,0,1511,,0,1
+ F,0,2074,,1,0
+ MX,0,1512,1699,144,160.9091
+ MX,0,1699,1886,227,231.5714
+ S,0,1699,1886,0.5
+ MX,0,1886,2074,182.7692,172
+ S,0,1886,2074,1,1.025
+Sprite,Background,Centre,"sb/f/0044.png",0,228.5
+ S,0,1511,,0.25
+ F,0,1511,,0,1
+ F,0,2074,,1,0
+ MX,0,1512,1699,261.5,267.7273
+ MX,0,1699,1886,285.75,287.5238
+ S,0,1699,1886,0.5
+ MX,0,1886,2074,273.1538,269.9167
+ S,0,1886,2074,1,1.025
+Sprite,Background,Centre,"sb/f/0042.png",0,228.5
+ S,0,1511,,0.25
+ F,0,1511,,0,1
+ F,0,2074,,1,0
+ MX,0,1512,1699,379,374.5454
+ MX,0,1699,1886,344.5,343.4762
+ S,0,1699,1886,0.5
+ MX,0,1886,2074,363.5385,367.8333
+ S,0,1886,2074,1,1.025
+Sprite,Background,Centre,"sb/f/0043.png",0,228.5
+ S,0,1511,,0.25
+ F,0,1511,,0,1
+ F,0,2074,,1,0
+ MX,0,1512,1699,496.5,481.3636
+ MX,0,1699,1886,403.25,399.4286
+ S,0,1699,1886,0.5
+ MX,0,1886,2074,453.9231,465.75
+ S,0,1886,2074,1,1.025
+Sprite,Background,Centre,"sb/triangle-128.png",0,0
+ C,0,855,,245,245,245
+ S,0,855,,0.2884356
+ F,1,855,1511,0.8,0
+ M,0,855,1511,343,190
+ F,0,1511,1512,0
+Sprite,Background,Centre,"sb/triangle-128.png",0,0
+ C,0,905,,253,253,253
+ S,0,905,,0.2060734
+ F,1,905,1511,0.8,0
+ M,0,905,1511,306,233
+ F,0,1511,1512,0
+Sprite,Background,Centre,"sb/triangle-128.png",0,0
+ C,0,955,,254,254,254
+ S,0,955,,0.206525
+ F,1,955,1511,0.8,0
+ M,0,955,1511,245,251
+ F,0,1511,1512,0
+Sprite,Background,Centre,"sb/triangle-128.png",0,0
+ C,0,1005,,189,189,189
+ S,0,1005,,0.2906654
+ F,1,1005,1511,0.8,0
+ M,0,1005,1511,395,224
+ F,0,1511,1512,0
+Sprite,Background,Centre,"sb/triangle-128.png",0,0
+ C,0,1055,,193,193,193
+ S,0,1055,,0.391491
+ F,1,1055,1511,0.8,0
+ M,0,1055,1511,425,173
+ F,0,1511,1512,0
+Sprite,Background,Centre,"sb/triangle-128.png",0,0
+ C,0,1105,,180,180,180
+ S,0,1105,,0.2914418
+ F,1,1105,1511,0.8,0
+ M,0,1105,1511,229,260
+ F,0,1511,1512,0
+Sprite,Background,Centre,"sb/triangle-128.png",0,0
+ C,0,1155,,175,175,175
+ S,0,1155,,0.3756383
+ F,1,1155,1511,0.8,0
+ M,0,1155,1511,407,231
+ F,0,1511,1512,0
+Sprite,Background,Centre,"sb/triangle-128.png",0,0
+ C,0,1205,,245,245,245
+ S,0,1205,,0.379288
+ F,1,1205,1511,0.8,0
+ M,0,1205,1511,391,232
+ F,0,1511,1512,0
+Sprite,Background,Centre,"sb/triangle-128.png",0,0
+ C,0,1255,,254,254,254
+ S,0,1255,,0.2962731
+ F,1,1255,1511,0.8,0
+ M,0,1255,1511,377,252
+ F,0,1511,1512,0
+Sprite,Background,Centre,"sb/triangle-128.png",0,0
+ C,0,1305,,159,159,159
+ S,0,1305,,0.3810353
+ F,1,1305,1511,0.8,0
+ M,0,1305,1511,160,242
+ F,0,1511,1512,0
+Sprite,Background,Centre,"sb/triangle-128.png",0,0
+ C,0,1355,,238,238,238
+ S,0,1355,,0.3618408
+ F,1,1355,1511,0.8,0
+ M,0,1355,1511,250,237
+ F,0,1511,1512,0
+Sprite,Background,Centre,"sb/triangle-128.png",0,0
+ C,0,1405,,183,183,183
+ S,0,1405,,0.2573445
+ F,1,1405,1511,0.8,0
+ M,0,1405,1511,237,222
+ F,0,1511,1512,0
+Sprite,Background,Centre,"sb/triangle-128.png",0,0
+ C,0,1455,,214,214,214
+ S,0,1455,,0.3855275
+ F,1,1455,1511,0.8,0
+ M,0,1455,1511,147,232
+ F,0,1511,1512,0
+Sprite,Background,Centre,"sb/logo-background.png",320,240
+ S,9,2074,3011,0.8,0
+ F,7,2074,3011,0.1,1
+ C,0,2074,,128,128,128
+ P,0,2074,3011,A
+Sprite,Background,Centre,"sb/logo-background.png",320,240
+ C,0,2074,,255,255,255
+ P,0,2074,3011,A
+ S,9,2074,3011,0.8,0
+ F,7,2074,3011,0,1
+Sprite,Background,Centre,"sb/logo-background.png",320,240
+ C,0,2074,,255,255,255
+ P,0,2074,3011,A
+ S,9,2074,3011,0.8,0
+ F,7,2074,3011,0,1
+Sprite,Background,Centre,"sb/logo-background.png",320,240
+ C,0,2074,,255,255,255
+ P,0,2074,3011,A
+ S,9,2074,3011,0.8,0
+ F,7,2074,3011,0,1
+Sprite,Background,Centre,"sb/logo-background.png",320,240
+ C,0,2074,,255,255,255
+ P,0,2074,3011,A
+ S,9,2074,3011,0.8,0
+ F,7,2074,3011,0,1
+Sprite,Background,Centre,"sb/logo-background.png",320,240
+ C,0,2074,,255,255,255
+ P,0,2074,3011,A
+ S,9,2074,3011,0.8,0
+ F,7,2074,3011,0,1
 //Storyboard Layer 1 (Fail)
 //Storyboard Layer 2 (Pass)
 //Storyboard Layer 3 (Foreground)
