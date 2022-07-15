@@ -68,15 +68,15 @@ namespace StorybrewScripts
             headSpin.Scale(StartTime, 0.33);
             headSpin.Fade(EndTime, EndTime+tick(0,1), 1, 0);
             
-            headSpin.Rotate(StartTime, 15011, MathHelper.DegreesToRadians(-40),  MathHelper.DegreesToRadians(12));
+            headSpin.Rotate(StartTime, 15011, MathHelper.DegreesToRadians(0),  MathHelper.DegreesToRadians(180));
 
-            var rotateInit = 12;
+            var rotateInit = 180;
             var rotateIncrease = 0;
             for(double spinInit = 15011+tick(0,2); spinInit<=EndTime;spinInit+=tick(0,1)){
                 headSpin.Rotate((OsbEasing)8,spinInit, spinInit+tick(0,2), MathHelper.DegreesToRadians(rotateInit),  MathHelper.DegreesToRadians(rotateInit-3));
                 Log($"{rotateInit-3}");
                 rotateInit-= 3+rotateIncrease;
-                rotateIncrease+=1;
+                rotateIncrease+=2;
                 
             }
             
@@ -100,7 +100,7 @@ namespace StorybrewScripts
             }
             circleSpin.Scale((OsbEasing)4, EndTime, EndTime+tick(0,1), 0.45, 2);
             headSpin.Scale((OsbEasing)4, EndTime, EndTime+tick(0,1), 0.68, 1.6);
-            headSpin.Rotate((OsbEasing)4, EndTime, EndTime+tick(0,1), MathHelper.DegreesToRadians(-313), MathHelper.DegreesToRadians(-360));
+            headSpin.Rotate((OsbEasing)4, EndTime, EndTime+tick(0,1), MathHelper.DegreesToRadians(45), MathHelper.DegreesToRadians(-300));
 
             var vig = layer.CreateSprite(VigBG,OsbOrigin.Centre);
             var Vigbitmap = GetMapsetBitmap(VigBG);
