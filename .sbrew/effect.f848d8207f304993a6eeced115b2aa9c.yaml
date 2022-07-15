@@ -1,0 +1,105 @@
+﻿FormatVersion: 7
+Name: "WelcomeParticles 1"
+Script: "WelcomeParticles"
+Config:
+  Path:
+    Type: "System.String"
+    Value: "sb/triangle-128.png"
+  StartTime:
+    Type: "System.Int32"
+    Value: "855"
+  EndTime:
+    Type: "System.Int32"
+    Value: "1511"
+  ParticleCount:
+    Type: "System.Int32"
+    Value: "13"
+  Scale:
+    Type: "OpenTK.Vector2"
+    Value: "0.5,0.5"
+  Origin:
+    Type: "System.Int32"
+    Value: "4"
+    AllowedValues:
+      TopLeft: "0"
+      TopCentre: "1"
+      TopRight: "2"
+      CentreLeft: "3"
+      Centre: "4"
+      CentreRight: "5"
+      BottomLeft: "6"
+      BottomCentre: "7"
+      BottomRight: "8"
+  Color:
+    Type: "OpenTK.Graphics.Color4"
+    Value: "1,1,1,1"
+  ColorVariance:
+    Type: "System.Single"
+    Value: "0.6"
+  Additive:
+    Type: "System.Boolean"
+    Value: "False"
+  SpawnOrigin:
+    Type: "OpenTK.Vector2"
+    Value: "320,220"
+  SpawnSpread:
+    Type: "System.Single"
+    Value: "360"
+  Angle:
+    Type: "System.Single"
+    Value: "0"
+  AngleSpread:
+    Type: "System.Single"
+    Value: "60"
+  Lifetime:
+    Type: "System.Single"
+    Value: "1000"
+  Easing:
+    Type: "System.Int32"
+    Value: "0"
+    AllowedValues:
+      None: "0"
+      Out: "1"
+      In: "2"
+      InQuad: "3"
+      OutQuad: "4"
+      InOutQuad: "5"
+      InCubic: "6"
+      OutCubic: "7"
+      InOutCubic: "8"
+      InQuart: "9"
+      OutQuart: "10"
+      InOutQuart: "11"
+      InQuint: "12"
+      OutQuint: "13"
+      InOutQuint: "14"
+      InSine: "15"
+      OutSine: "16"
+      InOutSine: "17"
+      InExpo: "18"
+      OutExpo: "19"
+      InOutExpo: "20"
+      InCirc: "21"
+      OutCirc: "22"
+      InOutCirc: "23"
+      InElastic: "24"
+      OutElastic: "25"
+      OutElasticHalf: "26"
+      OutElasticQuarter: "27"
+      InOutElastic: "28"
+      InBack: "29"
+      OutBack: "30"
+      InOutBack: "31"
+      InBounce: "32"
+      OutBounce: "33"
+      InOutBounce: "34"
+  RandomSeed:
+    Type: "System.Int32"
+    Value: "0"
+    DisplayName: "Random seed"
+Layers:
+  ca835a06418c4d2cae2096245ebc0bd5:
+    Name: ""
+    OsbLayer: Background
+    DiffSpecific: No
+    Visible: Yes
