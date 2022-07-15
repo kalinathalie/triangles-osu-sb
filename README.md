@@ -35,3 +35,11 @@
 85511 - [ ] transição dos triangulos feitos pros triangulos do lazer
 87011 - [ ] fazer gira gira da logo com triangulos do lazer la subindo talvez, muito talvez um espectro
 ```
+
+## roadmap
+
+- [x] Achar o bg do mapa
+- [x] timestamps básicas
+- [ ] Achar dois efeitos de outros sbs que encaixam
+- [ ] codar os efeitos de xadrez /quadrante
+- [ ] distribuir os tempos
