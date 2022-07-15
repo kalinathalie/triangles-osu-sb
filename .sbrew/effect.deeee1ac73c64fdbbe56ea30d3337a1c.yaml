@@ -7,7 +7,7 @@ Config:
     Value: "lyrics/welcome.srt"
   FontName:
     Type: "System.String"
-    Value: "Fontspring-DEMO-toruspro-light"
+    Value: "Torus-Regular.otf"
   SpritesPath:
     Type: "System.String"
     Value: "sb/lyrics"

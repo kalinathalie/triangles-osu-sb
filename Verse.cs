@@ -46,29 +46,26 @@ namespace StorybrewScripts
 
             var bitmap = GetMapsetBitmap(BackgroundPath);
             var bg = layer.CreateSprite(BackgroundPath, OsbOrigin.Centre);
-            bg.Scale(StartTime, 860.0f / bitmap.Height);
+            bg.Scale(StartTime, 1250.0f / bitmap.Height);
             bg.Fade(StartTime, StartTime, 0, Opacity);
             bg.Fade(EndTime, EndTime + 500, Opacity, 0);
 
-            //List<double> curveBG = CalculateCurve(320, 240, 570);
-            //int run = 0;
-            //for(double tempo = StartTime; tempo <= EndTime; tempo+=tick(0,2)){
-            //    bg.Move(tempo, tempo+tick(0,2), curveBG[run], curveBG[run+1], curveBG[run+2], curveBG[run+3]);
-            //    run+=2;
-            //}
-            bg.Move(StartTime, EndTime, 320, 1000, 320, -520);
-            bg.Rotate(StartTime, EndTime, MathHelper.DegreesToRadians(90), MathHelper.DegreesToRadians(90));
+            var MiddleTime = (StartTime+EndTime)/2;
+            bg.Move(StartTime, MiddleTime, 320, 1460, 320, -100);
+            bg.Move(MiddleTime, EndTime, 320, -100, 320, 1460);
+            bg.Rotate((OsbEasing)6, StartTime, MiddleTime, MathHelper.DegreesToRadians(90), MathHelper.DegreesToRadians(180));
+            bg.Rotate((OsbEasing)7, MiddleTime, EndTime, MathHelper.DegreesToRadians(180), MathHelper.DegreesToRadians(270));
 
             var flashBG = layer.CreateSprite(Flash, OsbOrigin.Centre);
             var Flashbitmap = GetMapsetBitmap(Flash);
-            //for(double flashtime = StartTime;flashtime<=EndTime;flashtime+=tick(0,(double)1/(double)8)){
+
             flashBG.Fade(OsbEasing.InCubic, StartTime, StartTime+tick(0,(double)1/(double)2), 0.8, 0);
             flashBG.Scale(StartTime, 510.0f / Flashbitmap.Height);
 
             var headSpin = layer.CreateSprite(Head,OsbOrigin.Centre);
             headSpin.Fade(OsbEasing.OutCirc, StartTime, StartTime+tick(0,1), 0, 1);
             headSpin.Fade(StartTime+tick(0,1), EndTime-tick(0,(double)1/(double)2), 1, 1);
-            headSpin.Scale(StartTime, 0.68);
+            headSpin.Scale(StartTime, 0.33);
             headSpin.Fade(EndTime, EndTime+tick(0,1), 1, 0);
             
             headSpin.Rotate(StartTime, 15011, MathHelper.DegreesToRadians(-40),  MathHelper.DegreesToRadians(12));
@@ -90,15 +87,15 @@ namespace StorybrewScripts
             circleSpin.Scale(StartTime, 0.45);
 
             for(double circlePump = StartTime+tick(0,1); circlePump <= EndTime; circlePump+=tick(0,(double)1/(double)2)){
-                headSpin.Scale(OsbEasing.OutCirc, circlePump, circlePump+tick(0,1), 0.68, 0.59*1.1);
+                headSpin.Scale(OsbEasing.OutCirc, circlePump, circlePump+tick(0,1), 0.33, 0.3);
                 circleSpin.Scale(OsbEasing.OutCirc, circlePump, circlePump+tick(0,1), 0.45, 0.45*1.1);
 
                 if(circlePump==23636){
                     circleSpin.Scale(circlePump+tick(0,1), circlePump+tick(0,1), 0.45*1.1, 0.45);
-                    headSpin.Scale(circlePump+tick(0,1), circlePump+tick(0,1), 0.59*1.1, 0.68);
+                    headSpin.Scale(circlePump+tick(0,1), circlePump+tick(0,1), 0.3, 0.33);
                 }else{
                     circleSpin.Scale(circlePump+tick(0,1), circlePump+tick(0,(double)1/(double)2), 0.45*1.1, 0.45);
-                    headSpin.Scale(circlePump+tick(0,1), circlePump+tick(0,(double)1/(double)2), 0.59*1.1, 0.68);
+                    headSpin.Scale(circlePump+tick(0,1), circlePump+tick(0,(double)1/(double)2), 0.3, 0.33);
                 }
             }
             circleSpin.Scale((OsbEasing)4, EndTime, EndTime+tick(0,1), 0.45, 2);
