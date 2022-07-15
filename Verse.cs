@@ -106,7 +106,7 @@ namespace StorybrewScripts
             var Vigbitmap = GetMapsetBitmap(VigBG);
             vig.Fade(StartTime, StartTime+tick(0,(double)1/(double)8), 0,0.65);
             vig.Fade(StartTime+tick(0,(double)1/(double)8), EndTime, 0.65,0.65);
-            vig.Scale(StartTime, 550.0f / Vigbitmap.Height);
+            vig.Scale(StartTime, 540.0f / Vigbitmap.Height);
         }
         double tick(double start, double divisor){
             return Beatmap.GetTimingPointAt((int)start).BeatDuration / divisor;

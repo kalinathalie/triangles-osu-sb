@@ -5,6 +5,7 @@ using StorybrewCommon.Scripting;
 using StorybrewCommon.Storyboarding;
 using StorybrewCommon.Util;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 
@@ -14,6 +15,9 @@ namespace StorybrewScripts
     {
         [Configurable]
         public string Path = "sb/particle.png";
+
+        [Configurable]
+        public string Path2 = "sb/particle.png";
 
         [Configurable]
         public int StartTime;
@@ -102,8 +106,10 @@ namespace StorybrewScripts
                         (float)Random(vMin, vMax),
                         hsba.W));
                 }
-
-                var particle = layer.CreateSprite(Path, Origin);
+                var changeTriangle = new List<string>();
+                changeTriangle.Add(Path);
+                changeTriangle.Add(Path2);
+                var particle = layer.CreateSprite(changeTriangle[i%2], Origin);
                 if (color.R != 1 || color.G != 1 || color.B != 1)
                     particle.Color(particleStartTime, color);
                 particle.Scale(particleStartTime, Random(0.2,0.4));
