@@ -53,7 +53,7 @@ namespace StorybrewScripts
             bg.Fade(StartTime, StartTime, 0, Opacity);
             bg.Fade(EndTime+tick(0,1), 0);
 
-            var MiddleTime = (StartTime+EndTime)/2;
+            var MiddleTime = tick(0,(double)1/(double)4)+(StartTime+EndTime)/2;
             bg.Move(StartTime, MiddleTime, 320, 1460, 320, -100);
             bg.Move(MiddleTime, EndTime, 320, -100, 320, 1460);
             bg.Rotate((OsbEasing)6, StartTime, MiddleTime, MathHelper.DegreesToRadians(90), MathHelper.DegreesToRadians(180));
