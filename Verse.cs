@@ -63,7 +63,6 @@ namespace StorybrewScripts
             var Flashbitmap = GetMapsetBitmap(Flash);
 
             flashBG.Fade(OsbEasing.InCubic, StartTime, StartTime+tick(0,(double)1/(double)2), 0.8, 0);
-            flashBG.Scale(StartTime, 510.0f / Flashbitmap.Height);
 
             flashBG.Fade(EndTime+tick(0,1), 1);
             flashBG.Fade(EndTime+tick(0,(double)1/(double)7), EndTime+tick(0,(double)1/(double)8), 1, 0);
@@ -168,16 +167,23 @@ namespace StorybrewScripts
             circleSpin.Fade(StartTime+tick(0,1), EndTime, 1, 1);
             circleSpin.Scale(StartTime, 0.45);
 
-            for(double circlePump = StartTime+tick(0,1); circlePump <= EndTime; circlePump+=tick(0,(double)1/(double)2)){
+            for(double circlePump = StartTime+tick(0,1); circlePump <= 20626; circlePump+=tick(0,(double)1/(double)2)){
                 headSpin.Scale(OsbEasing.OutCirc, circlePump, circlePump+tick(0,1), 0.33, 0.3);
                 circleSpin.Scale(OsbEasing.OutCirc, circlePump, circlePump+tick(0,1), 0.45, 0.45*1.1);
 
+                circleSpin.Scale(circlePump+tick(0,1), circlePump+tick(0,(double)1/(double)2), 0.45*1.1, 0.45);
+                headSpin.Scale(circlePump+tick(0,1), circlePump+tick(0,(double)1/(double)2), 0.3, 0.33);
+            }
+            for(double circlePump = 20636; circlePump <= EndTime-20; circlePump+=tick(0,1)){
+                headSpin.Scale(OsbEasing.OutCirc, circlePump, circlePump+tick(0,2), 0.33, 0.3);
+                circleSpin.Scale(OsbEasing.OutCirc, circlePump, circlePump+tick(0,2), 0.45, 0.45*1.1);
+
                 if(circlePump==23636){
-                    circleSpin.Scale(circlePump+tick(0,1), circlePump+tick(0,1), 0.45*1.1, 0.45);
-                    headSpin.Scale(circlePump+tick(0,1), circlePump+tick(0,1), 0.3, 0.33);
+                    circleSpin.Scale(circlePump+tick(0,2), circlePump+tick(0,1), 0.45*1.1, 0.45);
+                    headSpin.Scale(circlePump+tick(0,2), circlePump+tick(0,1), 0.3, 0.33);
                 }else{
-                    circleSpin.Scale(circlePump+tick(0,1), circlePump+tick(0,(double)1/(double)2), 0.45*1.1, 0.45);
-                    headSpin.Scale(circlePump+tick(0,1), circlePump+tick(0,(double)1/(double)2), 0.3, 0.33);
+                    circleSpin.Scale(circlePump+tick(0,2), circlePump+tick(0,1), 0.45*1.1, 0.45);
+                    headSpin.Scale(circlePump+tick(0,2), circlePump+tick(0,1), 0.3, 0.33);
                 }
             }
             circleSpin.Scale((OsbEasing)4, EndTime, EndTime+tick(0,1), 0.45, 2);
