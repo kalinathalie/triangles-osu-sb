@@ -66,8 +66,9 @@ namespace StorybrewScripts
             flashBG.Scale(StartTime, 510.0f / Flashbitmap.Height);
 
             flashBG.Fade(EndTime+tick(0,1), 1);
-            flashBG.Fade(EndTime+tick(0,(double)1/(double)7), EndTime+tick(0,(double)1/(double)9), 1, 0);
+            flashBG.Fade(EndTime+tick(0,(double)1/(double)7), EndTime+tick(0,(double)1/(double)8), 1, 0);
             flashBG.Color(EndTime+tick(0,1), new Color4(200,200,200,255));
+            flashBG.ScaleVec((OsbEasing)9,EndTime+tick(0,(double)1/(double)6), EndTime+tick(0,(double)1/(double)8), 60, 50, 60, 0);
 
             for(int x = -98; x<= 740; x+=128){
                 for(int y = 20; y<= 480; y+=110){
