@@ -30,6 +30,9 @@ namespace StorybrewScripts
         public string CircleHead = "sb/c2.png";
 
         [Configurable]
+        public string TriangleFinal = "sb/triangle-128.png";
+
+        [Configurable]
         public int StartTime = 0;
 
         [Configurable]
@@ -48,7 +51,7 @@ namespace StorybrewScripts
             var bg = layer.CreateSprite(BackgroundPath, OsbOrigin.Centre);
             bg.Scale(StartTime, 1250.0f / bitmap.Height);
             bg.Fade(StartTime, StartTime, 0, Opacity);
-            bg.Fade(EndTime, EndTime + 500, Opacity, 0);
+            bg.Fade(EndTime+tick(0,1), 0);
 
             var MiddleTime = (StartTime+EndTime)/2;
             bg.Move(StartTime, MiddleTime, 320, 1460, 320, -100);
@@ -62,6 +65,84 @@ namespace StorybrewScripts
             flashBG.Fade(OsbEasing.InCubic, StartTime, StartTime+tick(0,(double)1/(double)2), 0.8, 0);
             flashBG.Scale(StartTime, 510.0f / Flashbitmap.Height);
 
+            flashBG.Fade(EndTime+tick(0,1), 1);
+            flashBG.Fade(EndTime+tick(0,(double)1/(double)7), EndTime+tick(0,(double)1/(double)9), 1, 0);
+            flashBG.Color(EndTime+tick(0,1), new Color4(200,200,200,255));
+
+            for(int x = -98; x<= 740; x+=128){
+                for(int y = 20; y<= 480; y+=110){
+                    var triangulos = layer.CreateSprite(TriangleFinal, OsbOrigin.Centre, new Vector2(x, y));
+                    var triangulos2 = layer.CreateSprite(TriangleFinal, OsbOrigin.Centre, new Vector2(x+64, y));
+                    triangulos.Fade(EndTime, 1);
+                    triangulos.Scale((OsbEasing)1,EndTime,EndTime+tick(0,1), 0, 1.0);
+                    triangulos.Color(EndTime, new Color4(255,255,255,255));
+
+                    triangulos.Scale(EndTime+tick(0,1), 0.8);
+
+                    triangulos2.Fade(EndTime, 1);
+                    triangulos2.Rotate(EndTime, MathHelper.DegreesToRadians(180));
+                    triangulos2.Scale((OsbEasing)1,EndTime,EndTime+tick(0,1), 0, 1.0);
+                    triangulos2.Color(EndTime, new Color4(255,255,255,255));
+
+                    triangulos2.Scale(EndTime+tick(0,1), 0.8);
+                    
+
+                    if(y>=200 && y<=280){
+                        triangulos.Fade(EndTime+tick(0,1),1);
+                        triangulos2.Fade(EndTime+tick(0,1),1);
+                        triangulos2.Color(EndTime+tick(0,1), new Color4(255,255,255,255));
+                        triangulos.Color(EndTime+tick(0,1), new Color4(255,255,255,255));
+                    }
+                    if((y>=120 && y<=160) || (y>=320 && y<=380) ){
+                        triangulos.Fade(EndTime+tick(0,1),0);
+                        triangulos2.Fade(EndTime+tick(0,1),0);
+                        triangulos.Fade(EndTime+tick(0,1)+tick(0,2),1);
+                        triangulos2.Fade(EndTime+tick(0,1)+tick(0,2),1);
+
+                        triangulos2.Color(EndTime+tick(0,1)+tick(0,2), new Color4(255,130,180,255));
+                        triangulos.Color(EndTime+tick(0,1)+tick(0,2), new Color4(255,130,180,255));
+                    }
+                    if((y>=0 && y<=40) || (y>=430 && y<=480) ){
+                        triangulos.Fade(EndTime+tick(0,1),0);
+                        triangulos2.Fade(EndTime+tick(0,1),0);
+                        triangulos.Fade(EndTime+tick(0,1)+tick(0,1),1);
+                        triangulos2.Fade(EndTime+tick(0,1)+tick(0,1),1);
+
+                        triangulos2.Color(EndTime+tick(0,1)+tick(0,1), new Color4(92,200,250,255));
+                        triangulos.Color(EndTime+tick(0,1)+tick(0,1), new Color4(92,200,250,255));
+                    }
+                    
+                    if(x <= -85 && x >= -107){
+                        triangulos.Scale((OsbEasing)7, EndTime+tick(0,(double)1/(double)3), EndTime+tick(0,(double)1/(double)4), 0.8, 0);
+                        triangulos2.Scale((OsbEasing)7, EndTime+tick(0,(double)1/(double)3)+tick(0,2), EndTime+tick(0,(double)1/(double)3)+tick(0,2)+tick(0,1), 0.8, 0);
+                    }
+                    if(x>=650 && x<= 745){
+                        triangulos2.Scale((OsbEasing)7, EndTime+tick(0,(double)1/(double)3), EndTime+tick(0,(double)1/(double)4), 0.8, 0);
+                        triangulos.Scale((OsbEasing)7, EndTime+tick(0,(double)1/(double)3)+tick(0,2), EndTime+tick(0,(double)1/(double)3)+tick(0,2)+tick(0,1), 0.8, 0);
+                    }
+                    if(x >= 20 && x <= 70){
+                        triangulos.Scale((OsbEasing)7, EndTime+tick(0,(double)1/(double)4), EndTime+tick(0,(double)1/(double)5), 0.8, 0);
+                        triangulos2.Scale((OsbEasing)7, EndTime+tick(0,(double)1/(double)4)+tick(0,2), EndTime+tick(0,(double)1/(double)4)+tick(0,2)+tick(0,1), 0.8, 0);
+                    }
+                    if(x>=533 && x<= 560){
+                        triangulos2.Scale((OsbEasing)7, EndTime+tick(0,(double)1/(double)4), EndTime+tick(0,(double)1/(double)5), 0.8, 0);
+                        triangulos.Scale((OsbEasing)7, EndTime+tick(0,(double)1/(double)4)+tick(0,2), EndTime+tick(0,(double)1/(double)4)+tick(0,2)+tick(0,1), 0.8, 0);
+                    }
+                    if(x >= 150 && x <= 170){
+                        triangulos.Scale((OsbEasing)7, EndTime+tick(0,(double)1/(double)5), EndTime+tick(0,(double)1/(double)6), 0.8, 0);
+                        triangulos2.Scale((OsbEasing)7, EndTime+tick(0,(double)1/(double)5)+tick(0,2), EndTime+tick(0,(double)1/(double)5)+tick(0,2)+tick(0,1), 0.8, 0);
+                    }
+                    if(x>=400 && x<= 440){
+                        triangulos2.Scale((OsbEasing)7, EndTime+tick(0,(double)1/(double)5), EndTime+tick(0,(double)1/(double)6), 0.8, 0);
+                        triangulos.Scale((OsbEasing)7, EndTime+tick(0,(double)1/(double)5)+tick(0,2), EndTime+tick(0,(double)1/(double)5)+tick(0,2)+tick(0,1), 0.8, 0);
+                    }
+                    if(x >= 280 && x <= 300){
+                        triangulos.Scale((OsbEasing)7, EndTime+tick(0,(double)1/(double)6), EndTime+tick(0,(double)1/(double)7), 0.8, 0);
+                        triangulos2.Scale((OsbEasing)7, EndTime+tick(0,(double)1/(double)6), EndTime+tick(0,(double)1/(double)7), 0.8, 0);
+                    }
+                }
+            }
+
             var headSpin = layer.CreateSprite(Head,OsbOrigin.Centre);
             headSpin.Fade(OsbEasing.OutCirc, StartTime, StartTime+tick(0,1), 0, 1);
             headSpin.Fade(StartTime+tick(0,1), EndTime-tick(0,(double)1/(double)2), 1, 1);
@@ -74,7 +155,7 @@ namespace StorybrewScripts
             var rotateIncrease = 0;
             for(double spinInit = 15011+tick(0,2); spinInit<=EndTime;spinInit+=tick(0,1)){
                 headSpin.Rotate((OsbEasing)8,spinInit, spinInit+tick(0,2), MathHelper.DegreesToRadians(rotateInit),  MathHelper.DegreesToRadians(rotateInit-3));
-                Log($"{rotateInit-3}");
+                //Log($"{rotateInit-3}");
                 rotateInit-= 3+rotateIncrease;
                 rotateIncrease+=2;
                 
@@ -99,13 +180,15 @@ namespace StorybrewScripts
                 }
             }
             circleSpin.Scale((OsbEasing)4, EndTime, EndTime+tick(0,1), 0.45, 2);
-            headSpin.Scale((OsbEasing)4, EndTime, EndTime+tick(0,1), 0.68, 1.6);
-            headSpin.Rotate((OsbEasing)4, EndTime, EndTime+tick(0,1), MathHelper.DegreesToRadians(45), MathHelper.DegreesToRadians(-300));
+            headSpin.Scale((OsbEasing)4, EndTime, EndTime+tick(0,1), 0.33, 1.6);
+            headSpin.Rotate((OsbEasing)4, EndTime, EndTime+tick(0,1), MathHelper.DegreesToRadians(-45), MathHelper.DegreesToRadians(-300));
 
             var vig = layer.CreateSprite(VigBG,OsbOrigin.Centre);
             var Vigbitmap = GetMapsetBitmap(VigBG);
             vig.Fade(StartTime, StartTime+tick(0,(double)1/(double)8), 0,0.65);
             vig.Fade(StartTime+tick(0,(double)1/(double)8), EndTime, 0.65,0.65);
+            vig.Fade(EndTime, 0.65);
+            vig.Fade(EndTime+tick(0,(double)1/(double)7), 0);
             vig.Scale(StartTime, 540.0f / Vigbitmap.Height);
         }
         double tick(double start, double divisor){

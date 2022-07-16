@@ -17,6 +17,9 @@ Config:
   CircleHead:
     Type: "System.String"
     Value: "sb/c2.png"
+  TriangleFinal:
+    Type: "System.String"
+    Value: "sb/triangle-128.png"
   StartTime:
     Type: "System.Int32"
     Value: "3011"
