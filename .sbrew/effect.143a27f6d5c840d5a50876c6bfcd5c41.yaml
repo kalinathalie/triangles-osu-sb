@@ -34,6 +34,11 @@ Config:
     Value: "0"
     DisplayName: "Random seed"
 Layers:
+  252ee4f320c343afb79b812ea77b029e:
+    Name: "VerseBackground"
+    OsbLayer: Background
+    DiffSpecific: No
+    Visible: Yes
   f639499da6b749aa92381e3f3d10dc48:
     Name: "Verse"
     OsbLayer: Background
