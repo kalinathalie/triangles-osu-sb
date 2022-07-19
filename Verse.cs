@@ -65,9 +65,13 @@ namespace StorybrewScripts
             flashBG.Fade(OsbEasing.InCubic, StartTime, StartTime+tick(0,(double)1/(double)2), 0.8, 0);
 
             flashBG.Fade(EndTime+tick(0,1), 1);
-            flashBG.Fade(EndTime+tick(0,(double)1/(double)7), EndTime+tick(0,(double)1/(double)8), 1, 0);
+            flashBG.Fade(EndTime+tick(0,(double)1/(double)7), EndTime+tick(0,(double)1/(double)8), 1, 0.2);
             flashBG.Color(EndTime+tick(0,1), new Color4(200,200,200,255));
-            flashBG.ScaleVec((OsbEasing)9,EndTime+tick(0,(double)1/(double)6), EndTime+tick(0,(double)1/(double)8), 60, 50, 60, 0);
+            flashBG.ScaleVec((OsbEasing)9,EndTime+tick(0,(double)1/(double)6), EndTime+tick(0,(double)1/(double)8), 60, 50, 60, 10);
+            flashBG.ScaleVec((OsbEasing)7, 28886, 28886+tick(0,1), 60, 10, 60, 0);
+            flashBG.ScaleVec((OsbEasing)19, 29261, 29636, 0, 60, 5, 60);
+            flashBG.ScaleVec((OsbEasing)18, 29636, 30011, 5, 60, 60, 60);
+            flashBG.Fade((OsbEasing)6, 30011, 33011, 0.2, 0.8);
 
             for(int x = -98; x<= 740; x+=128){
                 for(int y = 20; y<= 480; y+=110){
@@ -200,14 +204,6 @@ namespace StorybrewScripts
         }
         double tick(double start, double divisor){
             return Beatmap.GetTimingPointAt((int)start).BeatDuration / divisor;
-        }
-        List<double> CalculateCurve(double x, double y, double radius){
-            List<double> curve = new List<double>();
-            for(double a = 0; a<=180; a++){
-                curve.Add(x+radius*Math.Cos((a)*(Math.PI/90)));
-                curve.Add(y+radius*Math.Sin((a)*(Math.PI/90)));
-            }
-            return curve;
         }
         int mod(int x, int m) {
             return (x%m + m)%m;

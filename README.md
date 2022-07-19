@@ -29,8 +29,13 @@
 3011 - [x] osu! cookie girando com triangulos atrás até o final da secção
     - Aspirador de pó de triangulos: Maot
     - Substituir logo pela logo sem círculo: Maot
-24011 - [ ] transição top que ainda não sei: K4l1
-27011 - [ ] triangulo surgindo em cada lado, aos poucos as linhas se formando: k4l1
+24011 - [x] transição top que ainda não sei: K4l1
+27011 - [x] triangulo surgindo em cada lado, aos poucos as linhas se formando: k4l1
+    - 1. std(white) taiko(white) osulogo(rosa) mania(white) ctb(white)
+    - 2. triangle sierspinski
+    - 3. delta = b2 - 4ac
+    - 4. grafico de bhaskara 5 coisas
+    - 5. Hypotenuse
 39011 - [ ] fazer uma coisa exagerada parecida com o cookie girando: maot
 63011 - [ ] gameplay antiga nostalgia: k4l1/maot
 75011 - [ ] continuação acima

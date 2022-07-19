@@ -53,6 +53,7 @@
   -->
   <ItemGroup>
     <Compile Include="Background.cs" />
+    <Compile Include="MathTransition.cs" />
     <Compile Include="Particles.cs" />
     <Compile Include="Verse.cs" />
     <Compile Include="Welcome.cs" />

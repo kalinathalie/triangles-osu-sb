@@ -1,0 +1,35 @@
+﻿FormatVersion: 7
+Name: "MathTransition 1"
+Script: "MathTransition"
+Config:
+  OsuLogo:
+    Type: "System.String"
+    Value: "sb/logo.png"
+  Taiko:
+    Type: "System.String"
+    Value: "sb/f/0044.png"
+  Mania:
+    Type: "System.String"
+    Value: "sb/f/0043.png"
+  Ctb:
+    Type: "System.String"
+    Value: "sb/f/0042.png"
+  Std:
+    Type: "System.String"
+    Value: "sb/f/0041.png"
+  StartTime:
+    Type: "System.Int32"
+    Value: "27011"
+  EndTime:
+    Type: "System.Int32"
+    Value: "30011"
+  RandomSeed:
+    Type: "System.Int32"
+    Value: "0"
+    DisplayName: "Random seed"
+Layers:
+  b60f93b5ef1942a79b4ca5e848c9d723:
+    Name: "Math"
+    OsbLayer: Background
+    DiffSpecific: No
+    Visible: Yes
