@@ -7,7 +7,7 @@ Config:
     Value: "sb/logo-background.png"
   LogoLightPath:
     Type: "System.String"
-    Value: "sb/logo-highlight.png"
+    Value: "sb/logo-highlightwhite2.png"
   StartTime:
     Type: "System.Int32"
     Value: "2074"
