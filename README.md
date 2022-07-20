@@ -25,17 +25,15 @@
 ## storyboard timestamps
 
 ```
-0 - [x] welcome to osu! do lazer
-3011 - [x] osu! cookie girando com triangulos atrás até o final da secção
-    - Aspirador de pó de triangulos: Maot
-    - Substituir logo pela logo sem círculo: Maot
-24011 - [x] transição top que ainda não sei: K4l1
-27011 - [x] triangulo surgindo em cada lado, aos poucos as linhas se formando: k4l1
+0 - [x] welcome to osu! do lazer: K4L1
+3011 - [x] osu! cookie girando com triangulos atrás até o final da secção: K4L1
+    - Aspirador de pó de triangulos: K4L1
+24011 - [x] transição top que ainda não sei: K4L1
+27011 - [x] triangulo surgindo em cada lado, aos poucos as linhas se formando: K4L1
     - 1. std(white) taiko(white) osulogo(rosa) mania(white) ctb(white)
     - 2. triangles in line horizontal
     - 3. triangle sierspinski for item 2
-    - 4. a2 = b2 + c2
-    - 5. a2 = b2 + c2 sobe e aparece Hypotenuse
+36011 - [...] Pre kiai / drop: K4L1
 39011 - [ ] fazer uma coisa exagerada parecida com o cookie girando: maot
 63011 - [ ] gameplay antiga nostalgia: k4l1/maot
 75011 - [ ] continuação acima
