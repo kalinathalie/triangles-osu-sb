@@ -72,7 +72,8 @@ namespace StorybrewScripts
             flashBG.ScaleVec((OsbEasing)7, 28886, 28886+tick(0,1), 60, 10, 60, 0);
             flashBG.ScaleVec((OsbEasing)19, 29261, 29636, 0, 60, 5, 60);
             flashBG.ScaleVec((OsbEasing)18, 29636, 30011, 5, 60, 60, 60);
-            flashBG.Fade((OsbEasing)6, 30011, 33011, 0.2, 0.8);
+            flashBG.Fade((OsbEasing)7, 30011, 33011, 0.2, 0.6);
+            flashBG.Fade((OsbEasing)7, 33011, 36011, 0.6, 0.1);
 
             for(int x = -98; x<= 740; x+=128){
                 for(int y = 20; y<= 480; y+=110){
@@ -200,7 +201,7 @@ namespace StorybrewScripts
             vig.Fade(StartTime, StartTime+tick(0,(double)1/(double)8), 0,0.65);
             vig.Fade(StartTime+tick(0,(double)1/(double)8), EndTime, 0.65,0.65);
             vig.Fade(EndTime, 0.65);
-            vig.Fade(EndTime+tick(0,(double)1/(double)7), 0);
+            vig.Fade(36011, 0);
             vig.Scale(StartTime, 540.0f / Vigbitmap.Height);
         }
         double tick(double start, double divisor){

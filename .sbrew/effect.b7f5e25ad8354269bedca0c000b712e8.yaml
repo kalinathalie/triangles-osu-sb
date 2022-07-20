@@ -17,12 +17,18 @@ Config:
   Std:
     Type: "System.String"
     Value: "sb/f/0041.png"
+  Triangle:
+    Type: "System.String"
+    Value: "sb/triangle-128.png"
   StartTime:
     Type: "System.Int32"
     Value: "27011"
   EndTime:
     Type: "System.Int32"
     Value: "30011"
+  Flash:
+    Type: "System.String"
+    Value: "sb/flash.png"
   RandomSeed:
     Type: "System.Int32"
     Value: "0"
