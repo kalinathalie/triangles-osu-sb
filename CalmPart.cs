@@ -141,7 +141,7 @@ namespace StorybrewScripts
 
             var triangulao = layer.CreateSprite(Triangle1, OsbOrigin.Centre, new Vector2(320, 240));
             triangulao.Fade(StartTime, 1);
-            triangulao.Fade(EndTime, EndTime + 500, 1, 0);
+            triangulao.Fade(85511, 0);
             triangulao.Color(StartTime, new Color4(200, 20, 120, 255));
             
             triangulao.Rotate((OsbEasing)1, StartTime, 64136, MathHelper.DegreesToRadians(0), MathHelper.DegreesToRadians(60));
