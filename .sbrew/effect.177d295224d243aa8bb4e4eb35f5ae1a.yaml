@@ -1,0 +1,44 @@
+﻿FormatVersion: 7
+Name: "TransitionKiai1 1"
+Script: "TransitionKiai1"
+Config:
+  BackgroundPath:
+    Type: "System.String"
+    Value: ""
+  StartTime:
+    Type: "System.Int32"
+    Value: "36011"
+  EndTime:
+    Type: "System.Int32"
+    Value: "38824"
+  FastTime:
+    Type: "System.Int32"
+    Value: "37699"
+  TrocaStartTime:
+    Type: "System.Int32"
+    Value: "37324"
+  Flash:
+    Type: "System.String"
+    Value: "sb/flash.png"
+  VigBG:
+    Type: "System.String"
+    Value: "sb/vig.png"
+  TriangleFinal:
+    Type: "System.String"
+    Value: "sb/triangle-128.png"
+  LogoPath:
+    Type: "System.String"
+    Value: "sb/logo.png"
+  TriangleLogoPath:
+    Type: "System.String"
+    Value: "sb/osu-logo-triangulo.png"
+  RandomSeed:
+    Type: "System.Int32"
+    Value: "0"
+    DisplayName: "Random seed"
+Layers:
+  181b5a0499a64cc79ceeb48f95456efc:
+    Name: "Kiai"
+    OsbLayer: Background
+    DiffSpecific: No
+    Visible: Yes

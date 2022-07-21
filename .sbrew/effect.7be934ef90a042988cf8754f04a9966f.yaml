@@ -7,7 +7,7 @@ Config:
     Value: "lyrics/symbols.srt"
   FontName:
     Type: "System.String"
-    Value: "/home/kali/Desktop/triangles-osu-sb/osufont-Regular.otf"
+    Value: "osufont-Regular.otf"
   SpritesPath:
     Type: "System.String"
     Value: "sb/f"

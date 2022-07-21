@@ -57,6 +57,7 @@
     <Compile Include="CalmPart.cs" />
     <Compile Include="MathTransition.cs" />
     <Compile Include="Particles.cs" />
+    <Compile Include="TransitionKiai1.cs" />
     <Compile Include="Verse.cs" />
     <Compile Include="Welcome.cs" />
     <Compile Include="WelcomeLogo.cs" />
