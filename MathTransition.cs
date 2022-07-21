@@ -237,7 +237,7 @@ namespace StorybrewScripts
             
             int runY = 0;
             
-            for(int y = 50; y<= 480; y+=55){
+            for(int y = 75; y<= 430; y+=55){
                 int runX = 0;
                 for(int x = -162; x<= 740; x+=32){     
                     
@@ -267,7 +267,7 @@ namespace StorybrewScripts
                             triangulos.Scale((OsbEasing)7, 33480, 33761, 0.3, 0);
                             triangulos.Color(34042, new Color4(255, 130, 180, 255));
                         triangulos.Scale((OsbEasing)7, 34042, 34324, 0, 0.3);
-                        triangulos.Color((OsbEasing)6, 34511, 36386, new Color4(255, 130, 180, 255), new Color4(255, 255, 255, 255));
+                        
 
                         }else{
                             triangulos.Color(31699, new Color4(255,130,180,255));
@@ -276,6 +276,10 @@ namespace StorybrewScripts
                             triangulos.Color(33761, new Color4(255,255,255,255));
     
                             triangulos.Color(34324, 34511, new Color4(255,255,255,255), new Color4(0,0,0,255));
+                            var colorRandom1 = Random(0.0f,0.5f);
+                        var colorRandom2 = Random(0.0f,0.5f);
+                        triangulos.Color(34511, 35261, new Color4(0,0,0,255), new Color4(colorRandom1,colorRandom1,colorRandom1,255));
+                        triangulos.Color(35261, 36386, new Color4(colorRandom1,colorRandom1,colorRandom1,255), new Color4(colorRandom2,colorRandom2,colorRandom2,255));
                         }
                     }else if(((new [] {14,15,16}).Contains(runX) && runY==3) || (runX==14 && runY==2)){
                         triangulos.Fade(31980, 1);
@@ -287,12 +291,16 @@ namespace StorybrewScripts
                             triangulos.Color(33761, new Color4(255,255,255,255));
     
                             triangulos.Color(34324, 34511, new Color4(255,255,255,255), new Color4(0,0,0,255));
+                            var colorRandom1 = Random(0.0f,0.5f);
+                        var colorRandom2 = Random(0.0f,0.5f);
+                        triangulos.Color(34511, 35261, new Color4(0,0,0,255), new Color4(colorRandom1,colorRandom1,colorRandom1,255));
+                        triangulos.Color(35261, 36386, new Color4(colorRandom1,colorRandom1,colorRandom1,255), new Color4(colorRandom2,colorRandom2,colorRandom2,255));
                         }else{   
                             triangulos.Color(31980, new Color4(255,255,255,255));
                             triangulos.Scale((OsbEasing)7, 33480, 33761, 0.3, 0);
                             triangulos.Color(34042, new Color4(255, 130, 180, 255));
                             triangulos.Scale((OsbEasing)7, 34042, 34324, 0, 0.3);
-                            triangulos.Color((OsbEasing)6, 34511, 36386, new Color4(255, 130, 180, 255), new Color4(255, 255, 255, 255));
+                            
                         }
                     }else if(((new [] {16,17,18}).Contains(runX) && runY==5) || (runX==16 && runY==4)){
                         triangulos.Fade(31980, 1);
@@ -304,12 +312,16 @@ namespace StorybrewScripts
                             triangulos.Color(33761, new Color4(255,255,255,255));
     
                             triangulos.Color(34324, 34511, new Color4(255,255,255,255), new Color4(0,0,0,255));
+                            var colorRandom1 = Random(0.0f,0.5f);
+                        var colorRandom2 = Random(0.0f,0.5f);
+                        triangulos.Color(34511, 35261, new Color4(0,0,0,255), new Color4(colorRandom1,colorRandom1,colorRandom1,255));
+                        triangulos.Color(35261, 36386, new Color4(colorRandom1,colorRandom1,colorRandom1,255), new Color4(colorRandom2,colorRandom2,colorRandom2,255));
                         }else{   
                             triangulos.Color(31980, new Color4(255,255,255,255));
                             triangulos.Scale((OsbEasing)7, 33480, 33761, 0.3, 0);
                             triangulos.Color(34042, new Color4(255, 130, 180, 255));
                             triangulos.Scale((OsbEasing)7, 34042, 34324, 0, 0.3);
-                            triangulos.Color((OsbEasing)6, 34511, 36386, new Color4(255, 130, 180, 255), new Color4(255, 255, 255, 255));
+                            
                         }
                     }else if(((new [] {12,13,14}).Contains(runX) && runY==5) || (runX==12 && runY==4)){
                         triangulos.Fade(31980, 1);
@@ -321,12 +333,16 @@ namespace StorybrewScripts
                             triangulos.Color(33761, new Color4(255,255,255,255));
     
                             triangulos.Color(34324, 34511, new Color4(255,255,255,255), new Color4(0,0,0,255));
+                            var colorRandom1 = Random(0.0f,0.5f);
+                            var colorRandom2 = Random(0.0f,0.5f);
+                            triangulos.Color(34511, 35261, new Color4(0,0,0,255), new Color4(colorRandom1,colorRandom1,colorRandom1,255));
+                            triangulos.Color(35261, 36386, new Color4(colorRandom1,colorRandom1,colorRandom1,255), new Color4(colorRandom2,colorRandom2,colorRandom2,255));
                         }else{   
                             triangulos.Color(31980, new Color4(255,255,255,255));
                             triangulos.Scale((OsbEasing)7, 33480, 33761, 0.3, 0);
                             triangulos.Color(34042, new Color4(255, 130, 180, 255));
                             triangulos.Scale((OsbEasing)7, 34042, 34324, 0, 0.3);
-                            triangulos.Color((OsbEasing)6, 34511, 36386, new Color4(255, 130, 180, 255), new Color4(255, 255, 255, 255));
+                            
                         }
                     }else if(((new [] {8,9,10,11,12,13,14,15,16,17,18,19,20}).Contains(runX) && runY==6)){
                         triangulos.Fade(32261, 1);
@@ -336,6 +352,10 @@ namespace StorybrewScripts
                         triangulos.Scale((OsbEasing)7, 33761, 34042, 0,0.3);
                         triangulos.Color(33761, new Color4(255,255,255,255));
                         triangulos.Color(34324, 34511, new Color4(255,255,255,255), new Color4(0,0,0,255));
+                        var colorRandom1 = Random(0.0f,0.5f);
+                        var colorRandom2 = Random(0.0f,0.5f);
+                        triangulos.Color(34511, 35261, new Color4(0,0,0,255), new Color4(colorRandom1,colorRandom1,colorRandom1,255));
+                        triangulos.Color(35261, 36386, new Color4(colorRandom1,colorRandom1,colorRandom1,255), new Color4(colorRandom2,colorRandom2,colorRandom2,255));
                     }else if(((new [] {10,11,19,20}).Contains(runX) && runY==5)){
                         triangulos.Fade(32261, 1);
                         triangulos.Scale((OsbEasing)7,32261,32261+tick(0,1.5), 0, 0.3);
@@ -344,6 +364,10 @@ namespace StorybrewScripts
                         triangulos.Scale((OsbEasing)7, 33761, 34042, 0,0.3);
                         triangulos.Color(33761, new Color4(255,255,255,255));
                         triangulos.Color(34324, 34511, new Color4(255,255,255,255), new Color4(0,0,0,255));
+                        var colorRandom1 = Random(0.0f,0.5f);
+                        var colorRandom2 = Random(0.0f,0.5f);
+                        triangulos.Color(34511, 35261, new Color4(0,0,0,255), new Color4(colorRandom1,colorRandom1,colorRandom1,255));
+                        triangulos.Color(35261, 36386, new Color4(colorRandom1,colorRandom1,colorRandom1,255), new Color4(colorRandom2,colorRandom2,colorRandom2,255));
                     }else if(((new [] {10,11,17,18}).Contains(runX) && runY==4)){
                         triangulos.Fade(32261, 1);
                         triangulos.Scale((OsbEasing)7,32261,32261+tick(0,1.5), 0, 0.3);
@@ -352,6 +376,10 @@ namespace StorybrewScripts
                         triangulos.Scale((OsbEasing)7, 33761, 34042, 0,0.3);
                         triangulos.Color(33761, new Color4(255,255,255,255));
                         triangulos.Color(34324, 34511, new Color4(255,255,255,255), new Color4(0,0,0,255));
+                        var colorRandom1 = Random(0.0f,0.5f);
+                        var colorRandom2 = Random(0.0f,0.5f);
+                        triangulos.Color(34511, 35261, new Color4(0,0,0,255), new Color4(colorRandom1,colorRandom1,colorRandom1,255));
+                        triangulos.Color(35261, 36386, new Color4(colorRandom1,colorRandom1,colorRandom1,255), new Color4(colorRandom2,colorRandom2,colorRandom2,255));
                     }else if(((new [] {12,13,17,18}).Contains(runX) && runY==3)){
                         triangulos.Fade(32261, 1);
                         triangulos.Scale((OsbEasing)7,32261,32261+tick(0,1.5), 0, 0.3);
@@ -360,6 +388,10 @@ namespace StorybrewScripts
                         triangulos.Scale((OsbEasing)7, 33761, 34042, 0,0.3);
                         triangulos.Color(33761, new Color4(255,255,255,255));
                         triangulos.Color(34324, 34511, new Color4(255,255,255,255), new Color4(0,0,0,255));
+                        var colorRandom1 = Random(0.0f,0.5f);
+                        var colorRandom2 = Random(0.0f,0.5f);
+                        triangulos.Color(34511, 35261, new Color4(0,0,0,255), new Color4(colorRandom1,colorRandom1,colorRandom1,255));
+                        triangulos.Color(35261, 36386, new Color4(colorRandom1,colorRandom1,colorRandom1,255), new Color4(colorRandom2,colorRandom2,colorRandom2,255));
                     }else if(((new [] {12,13,15,16}).Contains(runX) && runY==2)){
                         triangulos.Fade(32261, 1);
                         triangulos.Scale((OsbEasing)7,32261,32261+tick(0,1.5), 0, 0.3);
@@ -368,6 +400,10 @@ namespace StorybrewScripts
                         triangulos.Scale((OsbEasing)7, 33761, 34042, 0,0.3);
                         triangulos.Color(33761, new Color4(255,255,255,255));
                         triangulos.Color(34324, 34511, new Color4(255,255,255,255), new Color4(0,0,0,255));
+                        var colorRandom1 = Random(0.0f,0.5f);
+                        var colorRandom2 = Random(0.0f,0.5f);
+                        triangulos.Color(34511, 35261, new Color4(0,0,0,255), new Color4(colorRandom1,colorRandom1,colorRandom1,255));
+                        triangulos.Color(35261, 36386, new Color4(colorRandom1,colorRandom1,colorRandom1,255), new Color4(colorRandom2,colorRandom2,colorRandom2,255));
                     }else if(((new [] {14,15,16}).Contains(runX) && runY==1)){
                         triangulos.Fade(32261, 1);
                         triangulos.Scale((OsbEasing)7,32261,32261+tick(0,1.5), 0, 0.3);
@@ -376,6 +412,10 @@ namespace StorybrewScripts
                         triangulos.Scale((OsbEasing)7, 33761, 34042, 0,0.3);
                         triangulos.Color(33761, new Color4(255,255,255,255));
                         triangulos.Color(34324, 34511, new Color4(255,255,255,255), new Color4(0,0,0,255));
+                        var colorRandom1 = Random(0.0f,0.5f);
+                        var colorRandom2 = Random(0.0f,0.5f);
+                        triangulos.Color(34511, 35261, new Color4(0,0,0,255), new Color4(colorRandom1,colorRandom1,colorRandom1,255));
+                        triangulos.Color(35261, 36386, new Color4(colorRandom1,colorRandom1,colorRandom1,255), new Color4(colorRandom2,colorRandom2,colorRandom2,255));
                     }else if(((new [] {14}).Contains(runX) && runY==0)){
                         triangulos.Fade(32261, 1);
                         triangulos.Scale((OsbEasing)7,32261,32261+tick(0,1.5), 0, 0.3);
@@ -384,6 +424,10 @@ namespace StorybrewScripts
                         triangulos.Scale((OsbEasing)7, 33761, 34042, 0,0.3);
                         triangulos.Color(33761, new Color4(255,255,255,255));
                         triangulos.Color(34324, 34511, new Color4(255,255,255,255), new Color4(0,0,0,255));
+                        var colorRandom1 = Random(0.0f,0.5f);
+                        var colorRandom2 = Random(0.0f,0.5f);
+                        triangulos.Color(34511, 35261, new Color4(0,0,0,255), new Color4(colorRandom1,colorRandom1,colorRandom1,255));
+                        triangulos.Color(35261, 36386, new Color4(colorRandom1,colorRandom1,colorRandom1,255), new Color4(colorRandom2,colorRandom2,colorRandom2,255));
                     }else if(((new [] {5,23}).Contains(runX) && runY==0)){
                         triangulos.Fade(32542, 1);
                         triangulos.Scale((OsbEasing)7,32542,32542+tick(0,1.5), 0, 0.3);
@@ -391,7 +435,7 @@ namespace StorybrewScripts
                         triangulos.Scale((OsbEasing)7, 33480, 33761, 0.3, 0);
                         triangulos.Color(34042, new Color4(255, 130, 180, 255));
                         triangulos.Scale((OsbEasing)7, 34042, 34324, 0, 0.3);
-                        triangulos.Color((OsbEasing)6, 34511, 36386, new Color4(255, 130, 180, 255), new Color4(255, 255, 255, 255));
+                        
                     }else if(((new [] {3,4,6,7,21,22,24,25}).Contains(runX) && runY==0)){
                         triangulos.Fade(32542, 1);
                         triangulos.Scale((OsbEasing)7,32542,32542+tick(0,1.5), 0, 0.3);
@@ -400,6 +444,10 @@ namespace StorybrewScripts
                         triangulos.Scale((OsbEasing)7, 33761, 34042, 0,0.3);
                         triangulos.Color(33761, new Color4(255,255,255,255));
                         triangulos.Color(34324, 34511, new Color4(255,255,255,255), new Color4(0,0,0,255));
+                        var colorRandom1 = Random(0.0f,0.5f);
+                        var colorRandom2 = Random(0.0f,0.5f);
+                        triangulos.Color(34511, 35261, new Color4(0,0,0,255), new Color4(colorRandom1,colorRandom1,colorRandom1,255));
+                        triangulos.Color(35261, 36386, new Color4(colorRandom1,colorRandom1,colorRandom1,255), new Color4(colorRandom2,colorRandom2,colorRandom2,255));
                     }else if(((new [] {5,6,7,23,24,25}).Contains(runX) && runY==1)){
                         triangulos.Fade(32542, 1);
                         triangulos.Scale((OsbEasing)7,32542,32542+tick(0,1.5), 0, 0.3);
@@ -408,6 +456,10 @@ namespace StorybrewScripts
                         triangulos.Scale((OsbEasing)7, 33761, 34042, 0,0.3);
                         triangulos.Color(33761, new Color4(255,255,255,255));
                         triangulos.Color(34324, 34511, new Color4(255,255,255,255), new Color4(0,0,0,255));
+                        var colorRandom1 = Random(0.0f,0.5f);
+                        var colorRandom2 = Random(0.0f,0.5f);
+                        triangulos.Color(34511, 35261, new Color4(0,0,0,255), new Color4(colorRandom1,colorRandom1,colorRandom1,255));
+                        triangulos.Color(35261, 36386, new Color4(colorRandom1,colorRandom1,colorRandom1,255), new Color4(colorRandom2,colorRandom2,colorRandom2,255));
                     }else if(((new [] {5,23}).Contains(runX) && runY==2)){
                         triangulos.Fade(32542, 1);
                         triangulos.Scale((OsbEasing)7,32542,32542+tick(0,1.5), 0, 0.3);
@@ -416,6 +468,10 @@ namespace StorybrewScripts
                         triangulos.Scale((OsbEasing)7, 33761, 34042, 0,0.3);
                         triangulos.Color(33761, new Color4(255,255,255,255));
                         triangulos.Color(34324, 34511, new Color4(255,255,255,255), new Color4(0,0,0,255));
+                        var colorRandom1 = Random(0.0f,0.5f);
+                        var colorRandom2 = Random(0.0f,0.5f);
+                        triangulos.Color(34511, 35261, new Color4(0,0,0,255), new Color4(colorRandom1,colorRandom1,colorRandom1,255));
+                        triangulos.Color(35261, 36386, new Color4(colorRandom1,colorRandom1,colorRandom1,255), new Color4(colorRandom2,colorRandom2,colorRandom2,255));
                     }else if(((new [] {1,2,8,9,19,20,26,27}).Contains(runX) && runY==0)){
                         triangulos.Fade(32542, 1);
                         triangulos.Scale((OsbEasing)7,32542,32542+tick(0,1.5), 0, 0.3);
@@ -423,7 +479,7 @@ namespace StorybrewScripts
                         triangulos.Scale((OsbEasing)7, 33480, 33761, 0.3, 0);
                         triangulos.Color(34042, new Color4(255, 130, 180, 255));
                         triangulos.Scale((OsbEasing)7, 34042, 34324, 0, 0.3);
-                        triangulos.Color((OsbEasing)6, 34511, 36386, new Color4(255, 130, 180, 255), new Color4(255, 255, 255, 255));
+                        
                     }else if(((new [] {3,4,8,9,21,22,26,27}).Contains(runX) && runY==1)){
                         triangulos.Fade(32542, 1);
                         triangulos.Scale((OsbEasing)7,32542,32542+tick(0,1.5), 0, 0.3);
@@ -431,7 +487,7 @@ namespace StorybrewScripts
                         triangulos.Scale((OsbEasing)7, 33480, 33761, 0.3, 0);
                         triangulos.Color(34042, new Color4(255, 130, 180, 255));
                         triangulos.Scale((OsbEasing)7, 34042, 34324, 0, 0.3);
-                        triangulos.Color((OsbEasing)6, 34511, 36386, new Color4(255, 130, 180, 255), new Color4(255, 255, 255, 255));
+                        
                     }else if(((new [] {3,4,6,7,21,22,24,25}).Contains(runX) && runY==2)){
                         triangulos.Fade(32542, 1);
                         triangulos.Scale((OsbEasing)7,32542,32542+tick(0,1.5), 0, 0.3);
@@ -439,7 +495,7 @@ namespace StorybrewScripts
                         triangulos.Scale((OsbEasing)7, 33480, 33761, 0.3, 0);
                         triangulos.Color(34042, new Color4(255, 130, 180, 255));
                         triangulos.Scale((OsbEasing)7, 34042, 34324, 0, 0.3);
-                        triangulos.Color((OsbEasing)6, 34511, 36386, new Color4(255, 130, 180, 255), new Color4(255, 255, 255, 255));
+                        
                     }else if(((new [] {5,6,7,23,24,25}).Contains(runX) && runY==3)){
                         triangulos.Fade(32542, 1);
                         triangulos.Scale((OsbEasing)7,32542,32542+tick(0,1.5), 0, 0.3);
@@ -447,7 +503,7 @@ namespace StorybrewScripts
                         triangulos.Scale((OsbEasing)7, 33480, 33761, 0.3, 0);
                         triangulos.Color(34042, new Color4(255, 130, 180, 255));
                         triangulos.Scale((OsbEasing)7, 34042, 34324, 0, 0.3);
-                        triangulos.Color((OsbEasing)6, 34511, 36386, new Color4(255, 130, 180, 255), new Color4(255, 255, 255, 255));
+                        
                     }else if(((new [] {5,23}).Contains(runX) && runY==4)){
                         triangulos.Fade(32542, 1);
                         triangulos.Scale((OsbEasing)7,32542,32542+tick(0,1.5), 0, 0.3);
@@ -455,7 +511,7 @@ namespace StorybrewScripts
                         triangulos.Scale((OsbEasing)7, 33480, 33761, 0.3, 0);
                         triangulos.Color(34042, new Color4(255, 130, 180, 255));
                         triangulos.Scale((OsbEasing)7, 34042, 34324, 0, 0.3);
-                        triangulos.Color((OsbEasing)6, 34511, 36386, new Color4(255, 130, 180, 255), new Color4(255, 255, 255, 255));
+                        
                     }else if(((new [] {10,11,17,18}).Contains(runX) && runY==0)){
                         triangulos.Fade(32542, 1);
                         triangulos.Scale((OsbEasing)7,32542,32542+tick(0,1.5), 0, 0.3);
@@ -464,6 +520,10 @@ namespace StorybrewScripts
                         triangulos.Scale((OsbEasing)7, 33761, 34042, 0,0.3);
                         triangulos.Color(33761, new Color4(255,255,255,255));
                         triangulos.Color(34324, 34511, new Color4(255,255,255,255), new Color4(0,0,0,255));
+                        var colorRandom1 = Random(0.0f,0.5f);
+                        var colorRandom2 = Random(0.0f,0.5f);
+                        triangulos.Color(34511, 35261, new Color4(0,0,0,255), new Color4(colorRandom1,colorRandom1,colorRandom1,255));
+                        triangulos.Color(35261, 36386, new Color4(colorRandom1,colorRandom1,colorRandom1,255), new Color4(colorRandom2,colorRandom2,colorRandom2,255));
                     }else if(((new [] {2,10,11,19,20,28}).Contains(runX) && runY==1)){
                         triangulos.Fade(32542, 1);
                         triangulos.Scale((OsbEasing)7,32542,32542+tick(0,1.5), 0, 0.3);
@@ -472,6 +532,10 @@ namespace StorybrewScripts
                         triangulos.Scale((OsbEasing)7, 33761, 34042, 0,0.3);
                         triangulos.Color(33761, new Color4(255,255,255,255));
                         triangulos.Color(34324, 34511, new Color4(255,255,255,255), new Color4(0,0,0,255));
+                        var colorRandom1 = Random(0.0f,0.5f);
+                        var colorRandom2 = Random(0.0f,0.5f);
+                        triangulos.Color(34511, 35261, new Color4(0,0,0,255), new Color4(colorRandom1,colorRandom1,colorRandom1,255));
+                        triangulos.Color(35261, 36386, new Color4(colorRandom1,colorRandom1,colorRandom1,255), new Color4(colorRandom2,colorRandom2,colorRandom2,255));
                     }else if(((new [] {1,2,8,9,19,20,26,27}).Contains(runX) && runY==2)){
                         triangulos.Fade(32542, 1);
                         triangulos.Scale((OsbEasing)7,32542,32542+tick(0,1.5), 0, 0.3);
@@ -480,6 +544,10 @@ namespace StorybrewScripts
                         triangulos.Scale((OsbEasing)7, 33761, 34042, 0,0.3);
                         triangulos.Color(33761, new Color4(255,255,255,255));
                         triangulos.Color(34324, 34511, new Color4(255,255,255,255), new Color4(0,0,0,255));
+                        var colorRandom1 = Random(0.0f,0.5f);
+                        var colorRandom2 = Random(0.0f,0.5f);
+                        triangulos.Color(34511, 35261, new Color4(0,0,0,255), new Color4(colorRandom1,colorRandom1,colorRandom1,255));
+                        triangulos.Color(35261, 36386, new Color4(colorRandom1,colorRandom1,colorRandom1,255), new Color4(colorRandom2,colorRandom2,colorRandom2,255));
                     }else if(((new [] {3,4,8,9,21,22,26,27}).Contains(runX) && runY==3)){
                         triangulos.Fade(32542, 1);
                         triangulos.Scale((OsbEasing)7,32542,32542+tick(0,1.5), 0, 0.3);
@@ -488,6 +556,10 @@ namespace StorybrewScripts
                         triangulos.Scale((OsbEasing)7, 33761, 34042, 0,0.3);
                         triangulos.Color(33761, new Color4(255,255,255,255));
                         triangulos.Color(34324, 34511, new Color4(255,255,255,255), new Color4(0,0,0,255));
+                        var colorRandom1 = Random(0.0f,0.5f);
+                        var colorRandom2 = Random(0.0f,0.5f);
+                        triangulos.Color(34511, 35261, new Color4(0,0,0,255), new Color4(colorRandom1,colorRandom1,colorRandom1,255));
+                        triangulos.Color(35261, 36386, new Color4(colorRandom1,colorRandom1,colorRandom1,255), new Color4(colorRandom2,colorRandom2,colorRandom2,255));
                     }else if(((new [] {3,4,6,7,21,22,24,25}).Contains(runX) && runY==4)){
                         triangulos.Fade(32542, 1);
                         triangulos.Scale((OsbEasing)7,32542,32542+tick(0,1.5), 0, 0.3);
@@ -496,7 +568,11 @@ namespace StorybrewScripts
                         triangulos.Scale((OsbEasing)7, 33761, 34042, 0,0.3);
                         triangulos.Color(33761, new Color4(255,255,255,255));
                         triangulos.Color(34324, 34511, new Color4(255,255,255,255), new Color4(0,0,0,255));
-                    }else if(((new [] {5,6,7,23,24,25}).Contains(runX) && runY==5)){
+                        var colorRandom1 = Random(0.0f,0.5f);
+                        var colorRandom2 = Random(0.0f,0.5f);
+                        triangulos.Color(34511, 35261, new Color4(0,0,0,255), new Color4(colorRandom1,colorRandom1,colorRandom1,255));
+                        triangulos.Color(35261, 36386, new Color4(colorRandom1,colorRandom1,colorRandom1,255), new Color4(colorRandom2,colorRandom2,colorRandom2,255));
+                    }else if(((new [] {2,5,6,7,23,24,25,28}).Contains(runX) && runY==5)){
                         triangulos.Fade(32542, 1);
                         triangulos.Scale((OsbEasing)7,32542,32542+tick(0,1.5), 0, 0.3);
                         triangulos.Color(32542, new Color4(255,130,180,255));
@@ -504,7 +580,11 @@ namespace StorybrewScripts
                         triangulos.Scale((OsbEasing)7, 33761, 34042, 0,0.3);
                         triangulos.Color(33761, new Color4(255,255,255,255));
                         triangulos.Color(34324, 34511, new Color4(255,255,255,255), new Color4(0,0,0,255));
-                    }else if(((new [] {5,23}).Contains(runX) && runY==6)){
+                        var colorRandom1 = Random(0.0f,0.5f);
+                        var colorRandom2 = Random(0.0f,0.5f);
+                        triangulos.Color(34511, 35261, new Color4(0,0,0,255), new Color4(colorRandom1,colorRandom1,colorRandom1,255));
+                        triangulos.Color(35261, 36386, new Color4(colorRandom1,colorRandom1,colorRandom1,255), new Color4(colorRandom2,colorRandom2,colorRandom2,255));
+                    }else if(((new [] {1,2,5,23,26,27}).Contains(runX) && runY==6)){
                         triangulos.Fade(32542, 1);
                         triangulos.Scale((OsbEasing)7,32542,32542+tick(0,1.5), 0, 0.3);
                         triangulos.Color(32542, new Color4(255,130,180,255));
@@ -512,14 +592,18 @@ namespace StorybrewScripts
                         triangulos.Scale((OsbEasing)7, 33761, 34042, 0,0.3);
                         triangulos.Color(33761, new Color4(255,255,255,255));
                         triangulos.Color(34324, 34511, new Color4(255,255,255,255), new Color4(0,0,0,255));
+                        var colorRandom1 = Random(0.0f,0.5f);
+                        var colorRandom2 = Random(0.0f,0.5f);
+                        triangulos.Color(34511, 35261, new Color4(0,0,0,255), new Color4(colorRandom1,colorRandom1,colorRandom1,255));
+                        triangulos.Color(35261, 36386, new Color4(colorRandom1,colorRandom1,colorRandom1,255), new Color4(colorRandom2,colorRandom2,colorRandom2,255));
                     }else{
                         triangulos.Fade(32824, 1);
                         triangulos.Scale((OsbEasing)7,32824,32824+tick(0,1.5), 0, 0.3);
                         triangulos.Color(32824, new Color4(0,0,0,255));
-                        var colorRandom1 = Random(0.0f,1.0f);
-                        var colorRandom2 = Random(0.0f,1.0f);
-                        triangulos.Color(34511, 35261, new Color4(0,0,0,255), new Color4(colorRandom1,colorRandom1,colorRandom1,255));
-                        triangulos.Color(35261, 36386, new Color4(colorRandom1,colorRandom1,colorRandom1,255), new Color4(colorRandom2,colorRandom2,colorRandom2,255));
+                        var colorRandom1 = Random(0.0f,0.5f);
+                    var colorRandom2 = Random(0.0f,0.5f);
+                    triangulos.Color(34511, 35261, new Color4(0,0,0,255), new Color4(colorRandom1,colorRandom1,colorRandom1,255));
+                    triangulos.Color(35261, 36386, new Color4(colorRandom1,colorRandom1,colorRandom1,255), new Color4(colorRandom2,colorRandom2,colorRandom2,255));
                     }
 
                     triangulos.Fade(36386, 0);

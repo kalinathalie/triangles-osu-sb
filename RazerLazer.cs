@@ -81,7 +81,7 @@ namespace StorybrewScripts
                     if(run_rhythm[run] != 85324){
                         mini_triangle.Scale((OsbEasing)6, run_rhythm[run]+tick(0, (double)1/(double)2), run_rhythm[run]+(x*9.7)+tick(0, (double)1/(double)3), 0.3, 0);
                     }else{
-                        mini_triangle.Scale((OsbEasing)6, run_rhythm[run]+tick(0, (double)1/(double)2), 87011, 0.3, 0);
+                        mini_triangle.Scale((OsbEasing)6, run_rhythm[run]+tick(0, (double)1/(double)2), 86636, 0.3, 0);
                     }
                     var color2 = Color;
                     if (ColorVariance > 0){
