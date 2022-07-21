@@ -52,11 +52,14 @@ namespace StorybrewScripts
             var bitmap = GetMapsetBitmap(Background);
             bg.Scale(StartTime, 480.0f / bitmap.Height);
             bg.Fade(StartTime, StartTime, 0, 0.5);
-            bg.Fade(EndTime, EndTime + 500, 0.5, 0);
+            bg.Fade(MiddleTime, MiddleTime+tick(0,1), 0.5, 0.2);
+            bg.Fade(EndTime, 0);
 
             var flashBG = layer.CreateSprite(Flash, OsbOrigin.Centre);
             flashBG.Scale(StartTime, 50);
-            flashBG.Fade(StartTime, EndTime, 0.95, 0.7);
+            flashBG.Fade(StartTime, MiddleTime, 0.95, 0.7);
+            flashBG.Fade((OsbEasing)6, MiddleTime, MiddleTime+tick(0,1), 0.7, 0.2);
+            flashBG.Fade(EndTime, 0);
 
             var triangleCentre = new Vector2(320, 240);
 
@@ -180,7 +183,11 @@ namespace StorybrewScripts
             triangulao.Move((OsbEasing)4, 73886, 74261, new Vector2(320, 240), new Vector2(320, 200));
             triangulao.Move((OsbEasing)4, 74261, 75011, new Vector2(320, 200), new Vector2(320, 420));
 
-            triangulao.Move((OsbEasing)4, 75011, 84011, new Vector2(320, 420), new Vector2(320, 130));
+            triangulao.Move((OsbEasing)7, 75011, 84011, new Vector2(320, 420), new Vector2(320, 170));
+            triangulao.Color((OsbEasing)4, 74636, 75386, new Color4(200, 20, 120, 255), new Color4(255, 255, 255, 255));
+
+            triangulao.Color((OsbEasing)12, 77636, 78011, Color, Color4.White);
+            triangulao.Color((OsbEasing)12, 83824, 84199, Color, Color4.White);
             
             flashBG.Additive(StartTime);
 

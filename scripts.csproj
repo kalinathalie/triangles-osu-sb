@@ -55,8 +55,10 @@
     <Compile Include="Aspirador.cs" />
     <Compile Include="Background.cs" />
     <Compile Include="CalmPart.cs" />
+    <Compile Include="Kiai2.cs" />
     <Compile Include="MathTransition.cs" />
     <Compile Include="Particles.cs" />
+    <Compile Include="RazerLazer.cs" />
     <Compile Include="TransitionKiai1.cs" />
     <Compile Include="Verse.cs" />
     <Compile Include="Welcome.cs" />
