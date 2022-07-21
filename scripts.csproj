@@ -54,6 +54,7 @@
   <ItemGroup>
     <Compile Include="Aspirador.cs" />
     <Compile Include="Background.cs" />
+    <Compile Include="CalmPart.cs" />
     <Compile Include="MathTransition.cs" />
     <Compile Include="Particles.cs" />
     <Compile Include="Verse.cs" />

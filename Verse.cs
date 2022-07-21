@@ -61,7 +61,6 @@ namespace StorybrewScripts
             bg.Rotate((OsbEasing)7, MiddleTime, EndTime, MathHelper.DegreesToRadians(180), MathHelper.DegreesToRadians(270));
 
             var flashBG = layer.CreateSprite(Flash, OsbOrigin.Centre);
-            var Flashbitmap = GetMapsetBitmap(Flash);
 
             flashBG.Fade(OsbEasing.InCubic, StartTime, StartTime+tick(0,(double)1/(double)2), 0.8, 0);
 

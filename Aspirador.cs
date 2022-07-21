@@ -49,7 +49,7 @@ namespace StorybrewScripts
                                 655, 300,
                                 510, 406} );
 		    for(double tempo = StartTime; tempo<=EndTime; tempo+=tick(0,1)){
-                Log($"sb/Hexacons/{run+1}");
+                //Log($"sb/Hexacons/{run+1}");
                 var hexagon = layer.CreateSprite($"sb/Hexacons/{(run%24)+1}.png", OsbOrigin.Centre);
                 hexagon.Move((OsbEasing)9, tempo, tempo+tick(0,(double)1/(double)2), positionAspira[(run%8)*2], positionAspira[((run%8)*2) + 1], 320, 240);
                 hexagon.Fade(tempo, 1);
