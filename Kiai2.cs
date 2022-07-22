@@ -292,7 +292,23 @@ namespace StorybrewScripts
                 trapezioR.Color(99011, new Color4(255, 0, 0, 255));
                 trapezioG.Color(99011, new Color4(0, 255, 0, 255));
                 trapezioB.Color(99011, new Color4(0, 0, 255, 255));
+                trapezioR.Color(105386, new Color4(255, 0, 0, 255));
+                trapezioG.Color(105386, new Color4(0, 255, 0, 255));
+                trapezioB.Color(105386, new Color4(0, 0, 255, 255));
                 for(double tempo = StartTime; tempo<=EndTime; tempo+=tick(0, 1)){
+                    if(tempo==105011){
+                        trapezioR.Color(tempo, new Color4(255, 130, 170, 255));
+                        trapezioR.Color(tempo+tick(0,4), new Color4(50, 50, 50, 255));
+                        trapezioG.Color(tempo+tick(0,4), new Color4(255, 130, 170, 255));
+                        trapezioG.Color(tempo+tick(0,2), new Color4(50, 50, 50, 255));
+                        trapezioB.Color(tempo+tick(0,2), new Color4(255, 130, 170, 255));
+                        trapezioB.Color(tempo+tick(0,2), new Color4(255, 255, 255, 255));  
+
+                        trapezioR.Color(104824, new Color4(50, 50, 50, 255));
+                        trapezioG.Color(104824, new Color4(50, 50, 50, 255));
+                        trapezioB.Color(104824, new Color4(50, 50, 50, 255));            
+                        continue;
+                    }
                     if(tempo==98261 || tempo==98636 || tempo==110261 || tempo==110636){
                         if(x==0 || x==1){
                             trapezioR.Additive(tempo+tick(0,4), 0);
