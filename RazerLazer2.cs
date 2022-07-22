@@ -12,7 +12,7 @@ using System.Linq;
 
 namespace StorybrewScripts
 {
-    public class RazerLazer : StoryboardObjectGenerator{
+    public class RazerLazer2 : StoryboardObjectGenerator{
 
         [Configurable]
         public string Triangle1 = "sb/triangle-128.png";
@@ -43,27 +43,38 @@ namespace StorybrewScripts
             double tail_y = 0;
 
             List<int> run_rhythm = new List<int>(new int[] {
-                75011, 75574, 76511, 77074, 78011, 79324, 81011, 81574, 82511, 83074, 84011, 85324
+                87011, 87574, 88511, 89074, 90199, 90386, 90761, 91136, 91324, 92074, 93011, 93574, 94511, 95074, 96011, 96574, 97324
             } );
 
+            var actual_x = 320;
             for(int run = 0; run < run_rhythm.Count; run++){
-                if(Random(0,2)%2==0){
-                    random_angle = (run_rhythm[run]%2==0) ? Random(0, 15) : Random(165, 180);
+                if(run%2==0){
+                    actual_x = 320;
+                    if(Random(0,2)%2==0){
+                        random_angle = (run_rhythm[run]%2==0) ? Random(0, 15) : Random(165, 180);
+                    }else{
+                        random_angle = (run_rhythm[run]%2==0) ? Random(345, 360) : Random(180, 195);
+                    }
                 }else{
-                    random_angle = (run_rhythm[run]%2==0) ? Random(345, 360) : Random(180, 195);
+                    actual_x = Random(320-250, 320+250);
+                    if(Random(0,2)%2==0){
+                        random_angle = (run_rhythm[run]%2==0) ? Random(75, 90) : Random(270, 285);
+                    }else{
+                        random_angle = (run_rhythm[run]%2==0) ? Random(90, 105) : Random(255, 270);
+                    }
                 }
             
-                head_x = 320 + 430*Math.Cos(MathHelper.DegreesToRadians(random_angle));
+                head_x = actual_x + 430*Math.Cos(MathHelper.DegreesToRadians(random_angle));
                 int random_head_y = Random(240-150, 240+150);
                 head_y = random_head_y + 430*Math.Sin(MathHelper.DegreesToRadians(random_angle));
-                tail_x = 2*320 - head_x;
+                tail_x = 2*actual_x - head_x;
                 tail_y = 2*random_head_y - head_y;
                                 
 
                 int randomTriangle = 0;
                 double randomFade = 0;
                 
-                for(int x = 1; x<=70; x++){
+                for(int x = 1; x<=35; x++){
                     var mini_triangle = layer.CreateSprite(Triangle1, OsbOrigin.Centre);
                     if(randomTriangle%2==0){
                         mini_triangle = layer.CreateSprite(Triangle1, OsbOrigin.Centre);
@@ -71,17 +82,21 @@ namespace StorybrewScripts
                         mini_triangle = layer.CreateSprite(Triangle2, OsbOrigin.Centre);
                     }
                     
-                    var mini_triangle_position = new Vector2((float)(head_x-((head_x-tail_x)/70)*x), (float)(head_y-((head_y-tail_y)/70)*x));
+                    var mini_triangle_position = new Vector2((float)(head_x-((head_x-tail_x)/35)*x), (float)(head_y-((head_y-tail_y)/35)*x));
                     //mini_triangle.FlipH(brush_start, EndTime);
                     mini_triangle.Rotate(run_rhythm[run], MathHelper.DegreesToRadians(Random(0,120)));
-                    mini_triangle.Move((OsbEasing)7, run_rhythm[run]+(x*9.7), run_rhythm[run]+(x*9.7)+tick(0,1), mini_triangle_position, new Vector2(mini_triangle_position.X, mini_triangle_position.Y+ Random(-60,60)));
+                    if(actual_x==320){
+                         mini_triangle.Move((OsbEasing)7, run_rhythm[run]+(x*9.7), run_rhythm[run]+(x*9.7)+tick(0,1), mini_triangle_position, new Vector2(mini_triangle_position.X, mini_triangle_position.Y+ Random(-60,60)));
+                    }else{
+                         mini_triangle.Move((OsbEasing)7, run_rhythm[run]+(x*9.7), run_rhythm[run]+(x*9.7)+tick(0,1), mini_triangle_position, new Vector2(mini_triangle_position.X+ Random(-60,60), mini_triangle_position.Y));
+                    }
                     mini_triangle.Fade(run_rhythm[run], 0);
                     randomFade = Random(0.6, 1);
                     mini_triangle.Fade(run_rhythm[run]+(x*9.7), randomFade);
                     if(run_rhythm[run] != 85324){
-                        mini_triangle.Scale((OsbEasing)6, run_rhythm[run]+tick(0, (double)1/(double)2), run_rhythm[run]+(x*9.7)+tick(0, (double)1/(double)3), 0.3, 0);
+                        mini_triangle.Scale((OsbEasing)6, run_rhythm[run]+tick(0, (double)1/(double)1), run_rhythm[run]+(x*9.7)+tick(0, (double)1/(double)1.5), 0.3, 0);
                     }else{
-                        mini_triangle.Scale((OsbEasing)6, run_rhythm[run]+tick(0, (double)1/(double)2), 86636, 0.3, 0);
+                        mini_triangle.Scale((OsbEasing)6, run_rhythm[run]+tick(0, (double)1/(double)1), 86636, 0.3, 0);
                     }
                     var color2 = Color;
                     if (ColorVariance > 0){
@@ -101,22 +116,9 @@ namespace StorybrewScripts
                     }
                     mini_triangle.Color(run_rhythm[run], color2);
                     mini_triangle.Scale(run_rhythm[run], 0.3);
+                    mini_triangle.Additive(run_rhythm[run]);
                     randomTriangle+=1;
                 }
-
-                var osulogo = layer.CreateSprite(OsuTriangle, OsbOrigin.Centre);
-                
-                osulogo.Fade(run_rhythm[run], 1);
-                if(run_rhythm[run] != 85324){
-                    osulogo.Fade(run_rhythm[run]+tick(0,(double)1/(double)2), 0);
-                    osulogo.Move(run_rhythm[run], run_rhythm[run]+tick(0,(double)1/(double)2), head_x, head_y, tail_x, tail_y);
-                }else{
-                    osulogo.Fade(run_rhythm[run]+tick(0,(double)1/(double)2), 0);
-                    osulogo.Move(run_rhythm[run], run_rhythm[run]+tick(0,(double)1/(double)2), head_x, head_y, tail_x, tail_y);
-                }
-                
-                osulogo.Scale(run_rhythm[run], 0.1);
-                osulogo.Rotate(run_rhythm[run], run_rhythm[run]+tick(0,(double)1/(double)2), MathHelper.DegreesToRadians(Random(-100, 100)), MathHelper.DegreesToRadians(Random(-100, 100)));
             
             }            
         }

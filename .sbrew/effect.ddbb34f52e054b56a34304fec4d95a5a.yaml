@@ -8,6 +8,15 @@ Config:
   Triangle1:
     Type: "System.String"
     Value: "sb/triangle-128.png"
+  Background:
+    Type: "System.String"
+    Value: "sb/bg5.jpg"
+  Flash:
+    Type: "System.String"
+    Value: "sb/flash.png"
+  Line:
+    Type: "System.String"
+    Value: "sb/dot3.png"
   StartTime:
     Type: "System.Int32"
     Value: "87011"

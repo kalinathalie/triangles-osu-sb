@@ -59,6 +59,8 @@
     <Compile Include="MathTransition.cs" />
     <Compile Include="Particles.cs" />
     <Compile Include="RazerLazer.cs" />
+    <Compile Include="RazerLazer2.cs" />
+    <Compile Include="RazerLazer3.cs" />
     <Compile Include="TransitionKiai1.cs" />
     <Compile Include="Verse.cs" />
     <Compile Include="Welcome.cs" />

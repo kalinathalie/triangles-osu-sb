@@ -27,6 +27,9 @@ namespace StorybrewScripts
         public string Flash = "sb/flash.png";
 
         [Configurable]
+        public string Line = "sb/dot3.png";
+
+        [Configurable]
         public int StartTime = 0;
 
         [Configurable]
@@ -41,10 +44,40 @@ namespace StorybrewScripts
 
             var bg = layer.CreateSprite(Background, OsbOrigin.Centre);
 
-            bg.Fade(86824, 0.7);
-            bg.Fade(StartTime, 0.3);
+            var MiddleTime = (StartTime+EndTime)/2;
+
+            bg.Fade(86824, 1);
             bg.Fade(EndTime, 0);
-            bg.Scale(StartTime, 0.33);
+            bg.Scale(StartTime, 0.7);
+            bg.Rotate(StartTime, MathHelper.DegreesToRadians(7));
+            bg.Rotate(MiddleTime, MathHelper.DegreesToRadians(0));
+            bg.Move(StartTime, MiddleTime, 400, 260, 240, 230);
+            bg.Move(MiddleTime, 105386, 550, 100, 550, 250);
+            bg.Move(105386, EndTime, 150, 380, 150, 230);
+
+
+            int local_linha = -60;
+            for(double tempo = 98261;tempo<MiddleTime;tempo+=tick(0,4)){
+                var hSprite2 = layer.CreateSprite(Line, OsbOrigin.Centre);
+                hSprite2.MoveX(tempo, local_linha);
+                hSprite2.ScaleVec((OsbEasing)7, tempo, tempo+tick(0,4), 0, 854/2, 55, 854/2);
+                hSprite2.Fade((OsbEasing)7, tempo, tempo+tick(0,4), 0, 1);
+                hSprite2.Fade(MiddleTime, 0);
+                hSprite2.Color(tempo, new Color4(0,0,0,255));
+                local_linha+=110;
+            }
+
+            local_linha = 710;
+            for(double tempo = 110261;tempo<EndTime;tempo+=tick(0,4)){
+                var hSprite2 = layer.CreateSprite(Line, OsbOrigin.Centre);
+                hSprite2.MoveX(tempo, local_linha);
+                hSprite2.ScaleVec((OsbEasing)7, tempo, tempo+tick(0,4), 0, 854/2, 55, 854/2);
+                hSprite2.Fade((OsbEasing)7, tempo, tempo+tick(0,4), 0, 1);
+                hSprite2.Fade(EndTime, 0);
+                hSprite2.Color(tempo, new Color4(0,0,0,255));
+                local_linha-=110;
+            }
+            
 
             var flashBG3 = layer.CreateSprite(Flash, OsbOrigin.Centre);
 
@@ -79,18 +112,17 @@ namespace StorybrewScripts
             triangleG.Color(105386, new Color4(0, 255, 0, 255));
             triangleB.Color(105386, new Color4(0, 0, 255, 255));
 
-            float run_jump = 64;
+            float run_jump = 32;
             bool run_bool = true;
             int run_seno = 0;
-            for(double tempo = StartTime; tempo < EndTime; tempo+=tick(0,16)){
+            for(double tempo = StartTime; tempo < EndTime; tempo+=tick(0,8)){
                 var actual_y = (float)Math.Sin(MathHelper.DegreesToRadians(200/2)+0.04*run_seno)*41;
                 var after_y = (float)Math.Sin(MathHelper.DegreesToRadians(200/2)+0.04*run_seno+0.04)*41;
                 run_seno+=5;
                 if(run_bool){
-                    Log($"{actual_y}, {after_y}");
-                    triangleR.Move(tempo, tempo+tick(0,16), new Vector2(120f+(run_jump*3.125f), 130+actual_y), new Vector2(120f+((run_jump-1f)*3.125f), 130+after_y));
-                    triangleG.Move(tempo+tick(0,4), tempo+tick(0,16)+tick(0,4), new Vector2(120f+(run_jump*3.125f), 130+actual_y), new Vector2(120f+((run_jump-1f)*3.125f), 130+after_y));
-                    triangleB.Move(tempo+tick(0,2), tempo+tick(0,16)+tick(0,2), new Vector2(120f+(run_jump*3.125f), 130+actual_y), new Vector2(120f+((run_jump-1f)*3.125f), 130+after_y));
+                    triangleR.Move(tempo, tempo+tick(0,8), new Vector2(120f+(run_jump*6.25f), 130+actual_y), new Vector2(120f+((run_jump-1f)*6.25f), 130+after_y));
+                    triangleG.Move(tempo+tick(0,4), tempo+tick(0,8)+tick(0,4), new Vector2(120f+(run_jump*6.25f), 130+actual_y), new Vector2(120f+((run_jump-1f)*6.25f), 130+after_y));
+                    triangleB.Move(tempo+tick(0,2), tempo+tick(0,8)+tick(0,2), new Vector2(120f+(run_jump*6.25f), 130+actual_y), new Vector2(120f+((run_jump-1f)*6.25f), 130+after_y));
                     
                     if(run_jump!=1){
                         run_jump-=1;
@@ -99,10 +131,10 @@ namespace StorybrewScripts
                     }       
                 }else{
                    
-                    triangleR.Move(tempo, tempo+tick(0,16), new Vector2(120f+((run_jump-1f)*3.125f), 130+actual_y), new Vector2(120f+(run_jump*3.125f), 130+after_y));
-                    triangleG.Move(tempo+tick(0,4), tempo+tick(0,16)+tick(0,4), new Vector2(120f+((run_jump-1f)*3.125f), 130+actual_y), new Vector2(120f+(run_jump*3.125f), 130+after_y));
-                    triangleB.Move(tempo+tick(0,2), tempo+tick(0,16)+tick(0,2), new Vector2(120f+((run_jump-1f)*3.125f), 130+actual_y), new Vector2(120f+(run_jump*3.125f), 130+after_y));
-                    if(run_jump!=128){
+                    triangleR.Move(tempo, tempo+tick(0,16), new Vector2(120f+((run_jump-1f)*6.25f), 130+actual_y), new Vector2(120f+(run_jump*6.25f), 130+after_y));
+                    triangleG.Move(tempo+tick(0,4), tempo+tick(0,8)+tick(0,4), new Vector2(120f+((run_jump-1f)*6.25f), 130+actual_y), new Vector2(120f+(run_jump*6.25f), 130+after_y));
+                    triangleB.Move(tempo+tick(0,2), tempo+tick(0,8)+tick(0,2), new Vector2(120f+((run_jump-1f)*6.25f), 130+actual_y), new Vector2(120f+(run_jump*6.25f), 130+after_y));
+                    if(run_jump!=64){
                         run_jump+=1;
                     }else{
                         run_bool=true;
@@ -124,7 +156,8 @@ namespace StorybrewScripts
             triangleB.Additive(99011);
             
             int run_rotate = 0;
-            for(double tempo = StartTime; tempo<=EndTime; tempo+=tick(0, 1)){
+            for(double tempo = StartTime; tempo<EndTime; tempo+=tick(0, 1)){
+                bg.Fade((OsbEasing)7,tempo, tempo+tick(0,1), 0.7, 0.55);
                 if(tempo==105011){
                     triangleR.Color(tempo, new Color4(255, 130, 170, 255));
                     triangleR.Color(tempo+tick(0,4), new Color4(50, 50, 50, 255));
@@ -133,8 +166,9 @@ namespace StorybrewScripts
                     triangleB.Color(tempo+tick(0,2), new Color4(255, 130, 170, 255));
                     triangleB.Color(tempo+tick(0,2), new Color4(255, 255, 255, 255));  
 
-                    triangleG.Color(tempo, new Color4(50, 50, 50, 255));
-                    triangleB.Color(tempo, new Color4(50, 50, 50, 255));            
+                    triangleR.Color(104824, new Color4(50, 50, 50, 255));
+                    triangleG.Color(104824, new Color4(50, 50, 50, 255));
+                    triangleB.Color(104824, new Color4(50, 50, 50, 255));            
                     continue;
                 }
                 if(tempo==98261 || tempo==98636 || tempo==104824 || tempo==110261 || tempo==110636){

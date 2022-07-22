@@ -1,0 +1,32 @@
+﻿FormatVersion: 7
+Name: "RazerLazer2 1"
+Script: "RazerLazer2"
+Config:
+  Triangle1:
+    Type: "System.String"
+    Value: "sb/triangle-128.png"
+  Triangle2:
+    Type: "System.String"
+    Value: "sb/triangulo128.png"
+  OsuTriangle:
+    Type: "System.String"
+    Value: "sb/osu-logo-triangulo.png"
+  triangleCount:
+    Type: "System.Int32"
+    Value: "8"
+  Color:
+    Type: "OpenTK.Graphics.Color4"
+    Value: "1,1,1,1"
+  ColorVariance:
+    Type: "System.Single"
+    Value: "0.6"
+  RandomSeed:
+    Type: "System.Int32"
+    Value: "0"
+    DisplayName: "Random seed"
+Layers:
+  1f1e52c1f6b94d3b84008f60913d12ee:
+    Name: "RazerLazer"
+    OsbLayer: Background
+    DiffSpecific: No
+    Visible: Yes
