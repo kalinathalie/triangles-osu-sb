@@ -52,14 +52,19 @@ namespace StorybrewScripts
             var bitmap = GetMapsetBitmap(Background);
             bg.Scale(StartTime, 480.0f / bitmap.Height);
             bg.Fade(StartTime, StartTime, 0, 0.5);
-            bg.Fade(MiddleTime, MiddleTime+tick(0,1), 0.5, 0.2);
-            bg.Fade(EndTime, 0);
+            bg.Fade(MiddleTime, MiddleTime+tick(0,1), 0.5, 0.1);
+            bg.Fade((OsbEasing)6, 85511, 86261, 0.1, 0);
 
             var flashBG = layer.CreateSprite(Flash, OsbOrigin.Centre);
-            flashBG.Scale(StartTime, 50);
-            flashBG.Fade(StartTime, MiddleTime, 0.95, 0.7);
+            flashBG.Fade(StartTime, MiddleTime, 0.92, 0.7);
             flashBG.Fade((OsbEasing)6, MiddleTime, MiddleTime+tick(0,1), 0.7, 0.2);
-            flashBG.Fade(EndTime, 0);
+            flashBG.Fade(85511, 86074, 0.2, 0.1);
+            flashBG.Fade(86074, 86449, 0.1, 0.7);
+            flashBG.ScaleVec((OsbEasing)7, 86636, 86824, 60, 50, 60, 0);
+
+            flashBG.Additive(StartTime);
+            flashBG.Color(StartTime, new Color4(255,255,255,255));
+            flashBG.Color(86074, new Color4(80,80,80,255));
 
             var triangleCentre = new Vector2(320, 240);
 

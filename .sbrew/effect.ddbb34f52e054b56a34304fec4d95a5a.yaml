@@ -5,6 +5,9 @@ Config:
   Trapezio:
     Type: "System.String"
     Value: "sb/trapezio.png"
+  Triangle1:
+    Type: "System.String"
+    Value: "sb/triangle-128.png"
   StartTime:
     Type: "System.Int32"
     Value: "87011"

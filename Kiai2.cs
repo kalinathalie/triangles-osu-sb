@@ -21,6 +21,12 @@ namespace StorybrewScripts
         public string Triangle1 = "sb/triangle-128.png";
 
         [Configurable]
+        public string Background = "sb/bg1.png";
+
+        [Configurable]
+        public string Flash = "sb/flash.png";
+
+        [Configurable]
         public int StartTime = 0;
 
         [Configurable]
@@ -32,6 +38,19 @@ namespace StorybrewScripts
         public override void Generate(){
 
             var layer = GetLayer("Kiai2");
+
+            var bg = layer.CreateSprite(Background, OsbOrigin.Centre);
+
+            bg.Fade(86824, 0.7);
+            bg.Fade(StartTime, 0.3);
+            bg.Fade(EndTime, 0);
+            bg.Scale(StartTime, 0.33);
+
+            var flashBG3 = layer.CreateSprite(Flash, OsbOrigin.Centre);
+
+            flashBG3.Color(86824, new Color4(0,0,0,255));
+            flashBG3.Fade(86824, 1);
+            flashBG3.ScaleVec((OsbEasing)7, 86824, 87011, 60, 50, 0, 50);
 
             var triangleR = layer.CreateSprite(Triangle1, OsbOrigin.Centre);
             var triangleG = layer.CreateSprite(Triangle1, OsbOrigin.Centre);
@@ -53,25 +72,97 @@ namespace StorybrewScripts
             triangleR.Color(StartTime, new Color4(255, 0, 0, 255));
             triangleG.Color(StartTime, new Color4(0, 255, 0, 255));
             triangleB.Color(StartTime, new Color4(0, 0, 255, 255));
+            triangleR.Color(99011, new Color4(255, 0, 0, 255));
+            triangleG.Color(99011, new Color4(0, 255, 0, 255));
+            triangleB.Color(99011, new Color4(0, 0, 255, 255));
+            triangleR.Color(105386, new Color4(255, 0, 0, 255));
+            triangleG.Color(105386, new Color4(0, 255, 0, 255));
+            triangleB.Color(105386, new Color4(0, 0, 255, 255));
 
-            triangleR.Move((OsbEasing)5, StartTime, StartTime+tick(0, (double)1/(double)4), new Vector2(320, 170), new Vector2(120, 170));
-            triangleG.Move((OsbEasing)8, StartTime, StartTime+tick(0, (double)1/(double)4), new Vector2(320, 170), new Vector2(120, 170));
-            triangleB.Move((OsbEasing)11, StartTime, StartTime+tick(0, (double)1/(double)4), new Vector2(320, 170), new Vector2(120, 170));
+            float run_jump = 64;
+            bool run_bool = true;
+            int run_seno = 0;
+            for(double tempo = StartTime; tempo < EndTime; tempo+=tick(0,16)){
+                var actual_y = (float)Math.Sin(MathHelper.DegreesToRadians(200/2)+0.04*run_seno)*41;
+                var after_y = (float)Math.Sin(MathHelper.DegreesToRadians(200/2)+0.04*run_seno+0.04)*41;
+                run_seno+=5;
+                if(run_bool){
+                    Log($"{actual_y}, {after_y}");
+                    triangleR.Move(tempo, tempo+tick(0,16), new Vector2(120f+(run_jump*3.125f), 130+actual_y), new Vector2(120f+((run_jump-1f)*3.125f), 130+after_y));
+                    triangleG.Move(tempo+tick(0,4), tempo+tick(0,16)+tick(0,4), new Vector2(120f+(run_jump*3.125f), 130+actual_y), new Vector2(120f+((run_jump-1f)*3.125f), 130+after_y));
+                    triangleB.Move(tempo+tick(0,2), tempo+tick(0,16)+tick(0,2), new Vector2(120f+(run_jump*3.125f), 130+actual_y), new Vector2(120f+((run_jump-1f)*3.125f), 130+after_y));
+                    
+                    if(run_jump!=1){
+                        run_jump-=1;
+                    }else{
+                        run_bool=false;
+                    }       
+                }else{
+                   
+                    triangleR.Move(tempo, tempo+tick(0,16), new Vector2(120f+((run_jump-1f)*3.125f), 130+actual_y), new Vector2(120f+(run_jump*3.125f), 130+after_y));
+                    triangleG.Move(tempo+tick(0,4), tempo+tick(0,16)+tick(0,4), new Vector2(120f+((run_jump-1f)*3.125f), 130+actual_y), new Vector2(120f+(run_jump*3.125f), 130+after_y));
+                    triangleB.Move(tempo+tick(0,2), tempo+tick(0,16)+tick(0,2), new Vector2(120f+((run_jump-1f)*3.125f), 130+actual_y), new Vector2(120f+(run_jump*3.125f), 130+after_y));
+                    if(run_jump!=128){
+                        run_jump+=1;
+                    }else{
+                        run_bool=true;
+                    } 
+                }
+            }
 
             int run = 0;
             int trocaX = 0;
-            for(double tempo = StartTime+tick(0, (double)1/(double)4); tempo<=EndTime; tempo+=tick(0, (double)1/(double)8)){
-                trocaX = (run%2==0)? 200 : -200;
-                triangleR.Move((OsbEasing)5, tempo, tempo+tick(0, (double)1/(double)8), new Vector2(320-trocaX, 170), new Vector2(320+trocaX, 170));
-                triangleG.Move((OsbEasing)8, tempo, tempo+tick(0, (double)1/(double)8), new Vector2(320-trocaX, 170), new Vector2(320+trocaX, 170));
-                triangleB.Move((OsbEasing)11, tempo, tempo+tick(0, (double)1/(double)8), new Vector2(320-trocaX, 170), new Vector2(320+trocaX, 170));
-                run+=1;
-            }
+
+            triangleR.Additive(98261, 0);
+            triangleG.Additive(98261, 0);
+            triangleB.Additive(98261, 0);
+            triangleR.Additive(110261, 0);
+            triangleG.Additive(110261, 0);
+            triangleB.Additive(110261, 0);
+            triangleR.Additive(99011);
+            triangleG.Additive(99011);
+            triangleB.Additive(99011);
+            
+            int run_rotate = 0;
             for(double tempo = StartTime; tempo<=EndTime; tempo+=tick(0, 1)){
+                if(tempo==105011){
+                    triangleR.Color(tempo, new Color4(255, 130, 170, 255));
+                    triangleR.Color(tempo+tick(0,4), new Color4(50, 50, 50, 255));
+                    triangleG.Color(tempo+tick(0,4), new Color4(255, 130, 170, 255));
+                    triangleG.Color(tempo+tick(0,2), new Color4(50, 50, 50, 255));
+                    triangleB.Color(tempo+tick(0,2), new Color4(255, 130, 170, 255));
+                    triangleB.Color(tempo+tick(0,2), new Color4(255, 255, 255, 255));  
+
+                    triangleG.Color(tempo, new Color4(50, 50, 50, 255));
+                    triangleB.Color(tempo, new Color4(50, 50, 50, 255));            
+                    continue;
+                }
+                if(tempo==98261 || tempo==98636 || tempo==104824 || tempo==110261 || tempo==110636){
+                    triangleR.Color(tempo, new Color4(255, 130, 170, 255));
+                    triangleR.Color(tempo+tick(0,4), new Color4(255, 255, 255, 255));
+                    triangleG.Color(tempo, new Color4(255, 130, 170, 255));
+                    triangleG.Color(tempo+tick(0,4), new Color4(255, 255, 255, 255));
+                    triangleB.Color(tempo, new Color4(255, 130, 170, 255));
+                    triangleB.Color(tempo+tick(0,4), new Color4(255, 255, 255, 255));
+                    continue;
+                }
                 triangleR.Scale((OsbEasing)7, tempo, tempo+tick(0,1), 1.2, 1);
                 triangleG.Scale((OsbEasing)7, tempo, tempo+tick(0,1), 1.2, 1);
                 triangleB.Scale((OsbEasing)7, tempo, tempo+tick(0,1), 1.2, 1);
+
+                triangleR.Rotate((OsbEasing)4, tempo, tempo+tick(0,1), MathHelper.DegreesToRadians(run_rotate), MathHelper.DegreesToRadians(run_rotate+30));
+                triangleG.Rotate((OsbEasing)4, tempo, tempo+tick(0,1), MathHelper.DegreesToRadians(run_rotate), MathHelper.DegreesToRadians(run_rotate+30));
+                triangleB.Rotate((OsbEasing)4, tempo, tempo+tick(0,1), MathHelper.DegreesToRadians(run_rotate), MathHelper.DegreesToRadians(run_rotate+30));
+                run_rotate+=45;
             }
+
+            triangleR.Scale((OsbEasing)7, StartTime-tick(0,1), StartTime-tick(0,2), 1.2, 1);
+            triangleG.Scale((OsbEasing)7, StartTime-tick(0,1), StartTime-tick(0,2), 1.2, 1);
+            triangleB.Scale((OsbEasing)7, StartTime-tick(0,1), StartTime-tick(0,2), 1.2, 1);
+
+            triangleR.Scale((OsbEasing)7, StartTime-tick(0,2), StartTime, 1.2, 1);
+            triangleG.Scale((OsbEasing)7, StartTime-tick(0,2), StartTime, 1.2, 1);
+            triangleB.Scale((OsbEasing)7, StartTime-tick(0,2), StartTime, 1.2, 1);
 
             float Y_trapezio = 0;
             for(float x = 0; x<= 11; x++){
@@ -149,6 +240,9 @@ namespace StorybrewScripts
                 trapezioR.Additive(86261);
                 trapezioG.Additive(86261);
                 trapezioB.Additive(86261);
+                trapezioR.Additive(99011);
+                trapezioG.Additive(99011);
+                trapezioB.Additive(99011);
                 trapezioR.Fade(86261, 1);
                 trapezioG.Fade(86261, 1);
                 trapezioB.Fade(86261, 1);
@@ -161,7 +255,45 @@ namespace StorybrewScripts
                 trapezioR.Color(86261, new Color4(255, 0, 0, 255));
                 trapezioG.Color(86261, new Color4(0, 255, 0, 255));
                 trapezioB.Color(86261, new Color4(0, 0, 255, 255));
+                trapezioR.Color(99011, new Color4(255, 0, 0, 255));
+                trapezioG.Color(99011, new Color4(0, 255, 0, 255));
+                trapezioB.Color(99011, new Color4(0, 0, 255, 255));
                 for(double tempo = StartTime; tempo<=EndTime; tempo+=tick(0, 1)){
+                    if(tempo==98261 || tempo==98636 || tempo==110261 || tempo==110636){
+                        if(x==0 || x==1){
+                            trapezioR.Additive(tempo+tick(0,4), 0);
+                            trapezioG.Additive(tempo+tick(0,4), 0);
+                            trapezioB.Additive(tempo+tick(0,4), 0);
+                            trapezioR.Color(tempo+tick(0,4), new Color4(255, 130, 170, 255));
+                            trapezioR.Color(tempo+tick(0,2), new Color4(255, 255, 255, 255));
+                            trapezioG.Color(tempo+tick(0,4), new Color4(255, 130, 170, 255));
+                            trapezioG.Color(tempo+tick(0,2), new Color4(255, 255, 255, 255));
+                            trapezioB.Color(tempo+tick(0,4), new Color4(255, 130, 170, 255));
+                            trapezioB.Color(tempo+tick(0,2), new Color4(255, 255, 255, 255));
+                        }else if(x==3 || x==4 || x==5){
+                            trapezioR.Additive(tempo+tick(0,2), 0);
+                            trapezioG.Additive(tempo+tick(0,2), 0);
+                            trapezioB.Additive(tempo+tick(0,2), 0);
+                            trapezioR.Color(tempo+tick(0,2), new Color4(255, 130, 170, 255));
+                            trapezioR.Color(tempo+tick(0,2)+tick(0,4), new Color4(255, 255, 255, 255));
+                            trapezioG.Color(tempo+tick(0,2), new Color4(255, 130, 170, 255));
+                            trapezioG.Color(tempo+tick(0,2)+tick(0,4), new Color4(255, 255, 255, 255));
+                            trapezioB.Color(tempo+tick(0,2), new Color4(255, 130, 170, 255));
+                            trapezioB.Color(tempo+tick(0,2)+tick(0,4), new Color4(255, 255, 255, 255));
+                        }else{
+                            trapezioR.Additive(tempo+tick(0,2)+tick(0,4), 0);
+                            trapezioG.Additive(tempo+tick(0,2)+tick(0,4), 0);
+                            trapezioB.Additive(tempo+tick(0,2)+tick(0,4), 0);
+                            trapezioR.Color(tempo+tick(0,2)+tick(0,4), new Color4(255, 130, 170, 255));
+                            trapezioR.Color(tempo+tick(0,1), new Color4(255, 255, 255, 255));
+                            trapezioG.Color(tempo+tick(0,2)+tick(0,4), new Color4(255, 130, 170, 255));
+                            trapezioG.Color(tempo+tick(0,1), new Color4(255, 255, 255, 255));
+                            trapezioB.Color(tempo+tick(0,2)+tick(0,4), new Color4(255, 130, 170, 255));
+                            trapezioB.Color(tempo+tick(0,1), new Color4(255, 255, 255, 255));
+                        }
+                        continue;
+                    }
+                    if(tempo==105011) continue;
                     trapezioR.Scale((OsbEasing)7, tempo, tempo+tick(0,1), Random(0.45f, 0.7f)+(x*0.047f), 0.4+(x*0.047f));
                     trapezioG.Scale((OsbEasing)7, tempo, tempo+tick(0,1), Random(0.45f, 0.7f)+(x*0.047f), 0.4+(x*0.047f));
                     trapezioB.Scale((OsbEasing)7, tempo, tempo+tick(0,1), Random(0.45f, 0.7f)+(x*0.047f), 0.4+(x*0.047f));
