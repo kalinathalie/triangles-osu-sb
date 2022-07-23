@@ -73,6 +73,7 @@ namespace StorybrewScripts
             flashBG.ScaleVec((OsbEasing)18, 29636, 30011, 5, 60, 60, 60);
             flashBG.Fade((OsbEasing)7, 30011, 33011, 0.2, 0.6);
             flashBG.Fade((OsbEasing)7, 33011, 36011, 0.6, 0.1);
+            flashBG.Fade(36386, 0);
 
             for(int x = -98; x<= 740; x+=128){
                 for(int y = 20; y<= 480; y+=110){

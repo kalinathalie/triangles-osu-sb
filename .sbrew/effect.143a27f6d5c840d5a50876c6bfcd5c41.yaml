@@ -4,7 +4,7 @@ Script: "Verse"
 Config:
   BackgroundPath:
     Type: "System.String"
-    Value: "sb/background_triangles.jpg"
+    Value: "sb/background_triangles2.jpg"
   Flash:
     Type: "System.String"
     Value: "sb/flash.png"
