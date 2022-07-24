@@ -36,6 +36,11 @@ namespace StorybrewScripts
         [Configurable]
         public int EndStartTime = 60011;
 
+
+        [Configurable]
+        public int BuildupStartTime = 57011;
+
+
         [Configurable]
         public string Flash = "sb/flash.png";
 
@@ -86,12 +91,13 @@ namespace StorybrewScripts
             var LogoCircle = Layer.CreateSprite(LogoCirclePath, OsbOrigin.Centre); 
             var LogoText = Layer.CreateSprite(LogoTextPath, OsbOrigin.Centre); // (delta x =  0; delta y + 40)
             var LogoTriangle = Layer.CreateSprite(LogoTrianglePath, OsbOrigin.Centre, new Vector2(320, 200));
-            var Trapezio1 = Layer.CreateSprite(TrapezioPath, OsbOrigin.Centre, new Vector2(220, 188)); // (delta x = -100; delta y = -12)
-            var Trapezio2 = Layer.CreateSprite(TrapezioPath, OsbOrigin.Centre, new Vector2(420, 188)); // (delta x = +100; delta y = 12)
+            var Trapezio1 = Layer.CreateSprite(TrapezioPath, OsbOrigin.Centre, new Vector2(220, 185)); // (delta x = -100; delta y = -15) 11
+            var Trapezio2 = Layer.CreateSprite(TrapezioPath, OsbOrigin.Centre, new Vector2(420, 185)); // (delta x = +100; delta y = 15) -15
             var Trapezio3 = Layer.CreateSprite(TrapezioPath, OsbOrigin.Centre, new Vector2(320, 357)); // (delta x = 0; delta y = 157)
             var FlashBG = Layer.CreateSprite(Flash, OsbOrigin.Centre);
             var vig = Layer.CreateSprite(VigBG,OsbOrigin.Centre);
 
+            Vector2 CenterPosition = new Vector2(320, 240);
 
 
             BackgroundTile1.Fade(OsbEasing.InOutExpo, TrocaStartTime, TrocaStartTime + 300, 0, 1);
@@ -155,33 +161,103 @@ namespace StorybrewScripts
               
             FlashBG.Scale(39011, 100);
             FlashBG.Fade(OsbEasing.InQuad, 39011, 39011 + 100, 0.6, 0);
-            FlashBG.Fade(OsbEasing.InQuad, 45011,45011 + 100, 0.6, 0 );
+            FlashBG.Fade(OsbEasing.InQuad, 45011, 45011 + 100, 0.6, 0);
+            FlashBG.Fade(OsbEasing.InQuad, 57011, 57011 + 100, 0.6, 0);
             
-            double MeasureTime = (BeatTime/0.75);
+            double MeasureTime = (BeatTime * 0.75);
 
+            Vector2 NewRandomPosition = new Vector2();
+
+            int Count = 0;
+
+            var ToIncrease = MeasureTime;
 
             // MOVIMENTAÇÃO
-            for (double i = KiaiStartTime; i< EndStartTime; i+=MeasureTime ) { 
-                Vector2 NewRandomPosition =  new Vector2(Random(220, 420),  Random(190, 290));
+            for (double i = KiaiStartTime + (BeatTime/2); i< BuildupStartTime;) { 
+                if (Count == 4 ) {
+                    ToIncrease = BeatTime;
+                } else {
+                    ToIncrease = MeasureTime;
+                }
 
-                LogoTriangle.Move(OsbEasing.InOutQuad, i, i + MeasureTime, LogoTriangle.PositionAt(i), NewRandomPosition);
-                LogoText.Move(OsbEasing.InOutQuad, i, i + MeasureTime, LogoText.PositionAt(i), new Vector2(NewRandomPosition.X, NewRandomPosition.Y + 40));
+                NewRandomPosition =  GetRandomPositionFromRadius(LogoTriangle.PositionAt(i), 80);
+
+                LogoTriangle.Move((OsbEasing) 7, i, i + ToIncrease, LogoTriangle.PositionAt(i), NewRandomPosition);
+                LogoText.Move((OsbEasing) 7, i, i + ToIncrease, LogoText.PositionAt(i), new Vector2(NewRandomPosition.X, NewRandomPosition.Y + 40));
                     
-                Trapezio1.Move(OsbEasing.InOutQuad, i, i + MeasureTime, Trapezio1.PositionAt(i), new Vector2(NewRandomPosition.X -100, NewRandomPosition.Y -12 ));
-                Trapezio2.Move(OsbEasing.InOutQuad, i, i + MeasureTime, Trapezio2.PositionAt(i), new Vector2(NewRandomPosition.X + 100, NewRandomPosition.Y -12 ));
-                Trapezio3.Move(OsbEasing.InOutQuad, i, i + MeasureTime, Trapezio3.PositionAt(i), new Vector2(NewRandomPosition.X, NewRandomPosition.Y + 157));
-         
+                Trapezio1.Move(OsbEasing.InOutSine, i, i + ToIncrease, Trapezio1.PositionAt(i), new Vector2(NewRandomPosition.X -100, NewRandomPosition.Y -15 ));
+                Trapezio2.Move(OsbEasing.InOutSine, i, i + ToIncrease, Trapezio2.PositionAt(i), new Vector2(NewRandomPosition.X + 100, NewRandomPosition.Y -15 ));
+                Trapezio3.Move(OsbEasing.InOutSine, i, i + ToIncrease, Trapezio3.PositionAt(i), new Vector2(NewRandomPosition.X, NewRandomPosition.Y + 157));
+                
+
+                i+= ToIncrease;
+
+                if (Count == 4) {
+                    Count = 0;
+                } else {
+                    Count++;
+                }
+            }
+            // MOVIMENTO PREBUILDUP
+            Count = 0;
+            for (double i = BuildupStartTime + (BeatTime/2); i< EndStartTime;) { 
+                if (Count == 1 ) {
+                    ToIncrease = BeatTime * 1.25;
+                } else {
+                    ToIncrease = MeasureTime;
+                }
+
+                NewRandomPosition = GetRandomPositionFromRadius(LogoTriangle.PositionAt(i), 80);
+                
+                LogoTriangle.Move((OsbEasing) 7, i, i + ToIncrease, LogoTriangle.PositionAt(i), NewRandomPosition);
+                LogoText.Move((OsbEasing) 7, i, i + ToIncrease, LogoText.PositionAt(i), new Vector2(NewRandomPosition.X, NewRandomPosition.Y + 40));
+                    
+                Trapezio1.Move(OsbEasing.InOutSine, i, i + ToIncrease, Trapezio1.PositionAt(i), new Vector2(NewRandomPosition.X -100, NewRandomPosition.Y -15 ));
+                Trapezio2.Move(OsbEasing.InOutSine, i, i + ToIncrease, Trapezio2.PositionAt(i), new Vector2(NewRandomPosition.X + 100, NewRandomPosition.Y -15 ));
+                Trapezio3.Move(OsbEasing.InOutSine, i, i + ToIncrease, Trapezio3.PositionAt(i), new Vector2(NewRandomPosition.X, NewRandomPosition.Y + 157));
+                
+
+                i+= ToIncrease;
+
+                if (Count == 1) {
+                    Count = 0;
+                } else {
+                    Count++;
+                }
+
+            }
+            
+            Vector2 MoveToPosition = new Vector2((CenterPosition.X - NewRandomPosition.X ) /8,(CenterPosition.Y -  NewRandomPosition.Y)/ 8);
+
+            // MOVIMENTO BUILDUP
+            Count = 1;
+            for (double i = EndStartTime + (BeatTime/2); i< EndTime;) { 
+
+                ToIncrease = BeatTime;
+
+                Vector2 SendToPosition = NewRandomPosition + (MoveToPosition *Count);
+                        
+                LogoTriangle.Move((OsbEasing) 7, i, i + ToIncrease, LogoTriangle.PositionAt(i), SendToPosition);
+                LogoText.Move((OsbEasing) 7, i, i + ToIncrease, LogoText.PositionAt(i), new Vector2(SendToPosition.X, SendToPosition.Y+ 40));
+                    
+                Trapezio1.Move((OsbEasing) 6, i, i + ToIncrease, Trapezio1.PositionAt(i), new Vector2(SendToPosition.X -100, SendToPosition.Y -15 ));
+                Trapezio2.Move((OsbEasing) 6, i, i + ToIncrease, Trapezio2.PositionAt(i), new Vector2(SendToPosition.X + 100, SendToPosition.Y -15 ));
+                Trapezio3.Move((OsbEasing) 6, i, i + ToIncrease, Trapezio3.PositionAt(i), new Vector2(SendToPosition.X, SendToPosition.Y + 157));
+                
+                Count++;
+                i+= ToIncrease;
             }
 
-            LogoTriangle.Move(OsbEasing.None, EndStartTime , EndStartTime + MeasureTime, LogoTriangle.PositionAt(EndStartTime), LogoTriangle.PositionAt(KiaiStartTime));
-            LogoText.Move(OsbEasing.None, EndStartTime, EndStartTime + MeasureTime, LogoText.PositionAt(EndStartTime), new Vector2(LogoText.PositionAt(KiaiStartTime).X, (200 + (40 * 0.9f) ))); 
+            /*
+            var CenterPosition = new Vector2(320, 240);
+
+            LogoTriangle.Move(OsbEasing.None, EndStartTime, EndStartTime + BeatTime, LogoTriangle.PositionAt(EndStartTime), CenterPosition);
+            LogoText.Move(OsbEasing.None, EndStartTime, EndStartTime + BeatTime, LogoText.PositionAt(EndStartTime), new Vector2(CenterPosition.X, (CenterPosition.Y + (40 * 0.9f) ))); 
                     
-            Trapezio1.Move(OsbEasing.None, EndStartTime, EndStartTime + MeasureTime, Trapezio1.PositionAt(EndStartTime), Trapezio1.PositionAt(KiaiStartTime));
-            Trapezio2.Move(OsbEasing.None, EndStartTime, EndStartTime + MeasureTime, Trapezio2.PositionAt(EndStartTime), Trapezio2.PositionAt(KiaiStartTime));
-            Trapezio3.Move(OsbEasing.None, EndStartTime, EndStartTime + MeasureTime, Trapezio3.PositionAt(EndStartTime), Trapezio3.PositionAt(KiaiStartTime));
-
-
-        
+            Trapezio1.Move(OsbEasing.None, EndStartTime, EndStartTime + BeatTime, Trapezio1.PositionAt(EndStartTime), new Vector2(CenterPosition.X -100, CenterPosition.Y -15 ));
+            Trapezio2.Move(OsbEasing.None, EndStartTime, EndStartTime + BeatTime, Trapezio2.PositionAt(EndStartTime), new Vector2(CenterPosition.X + 100, CenterPosition.Y -15 ));
+            Trapezio3.Move(OsbEasing.None, EndStartTime, EndStartTime + BeatTime, Trapezio3.PositionAt(EndStartTime), new Vector2(CenterPosition.X, CenterPosition.Y + 157));
+            */
             int TrapezioToClone = 1;
  
             // KICK SNARE EXPAND TOP 10
@@ -224,16 +300,13 @@ namespace StorybrewScripts
                         break;
                 }   
 
-
-
-
                 var CloneTrapezio = Layer.CreateSprite(TrapezioPath, OsbOrigin.Centre, TrapClone.PositionAt(i)); // (delta x = -100; delta y = -12)
                 CloneTrapezio.Rotate(i, TrapClone.RotationAt(i));
-                CloneTrapezio.ScaleVec(OsbEasing.InOutExpo, i, i + 30, new Vector2(SCALE, SCALE_BEFORE_X), new Vector2(SCALE, SCALE_AFTER_X * 2));
+                CloneTrapezio.ScaleVec((OsbEasing) 0, i, i + BeatTime * 3, new Vector2(SCALE, SCALE_BEFORE_X), new Vector2(SCALE * 3.5f, SCALE_AFTER_X * 3.5f));
                 CloneTrapezio.Color(i, ProjectileColor);
                 BackgroundTile1.Color(i, ProjectileColor);
                 CloneTrapezio.Additive(i);
-                CloneTrapezio.Move(OsbEasing.InOutSine, i, i + BeatTime * 2, TrapClone.PositionAt(i), new Vector2(TrapClone.PositionAt(i).X + 1000 * Math.Cos(DegToRad(AngleToFace)),TrapClone.PositionAt(i).Y + 1000 * Math.Sin(DegToRad(AngleToFace))));
+                CloneTrapezio.Move((OsbEasing) 0, i, i + BeatTime * 3, TrapClone.PositionAt(i), new Vector2(TrapClone.PositionAt(i).X + 620 * Math.Cos(DegToRad(AngleToFace)),TrapClone.PositionAt(i).Y + 620 * Math.Sin(DegToRad(AngleToFace))));
                 
                 if (TrapezioToClone >= 3)
                     TrapezioToClone = 1;
@@ -245,9 +318,9 @@ namespace StorybrewScripts
 
             // FINALZIN
             for (double i = EndStartTime; i< EndTime; i+=BeatTime) {
-                Trapezio1.ScaleVec(OsbEasing.InOutExpo, i, i + BeatTime, new Vector2(SCALE, SCALE_BEFORE_X * (1/ScaleMultipl)), new Vector2(SCALE, SCALE_AFTER_X* (1/ScaleMultipl)));
-                Trapezio2.ScaleVec(OsbEasing.InOutExpo, i, i + BeatTime, new Vector2(SCALE, SCALE_BEFORE_X* (1/ScaleMultipl)), new Vector2(SCALE, SCALE_AFTER_X* (1/ScaleMultipl)));
-                Trapezio3.ScaleVec(OsbEasing.InOutExpo, i, i + BeatTime, new Vector2(SCALE, SCALE_BEFORE_X* (1/ScaleMultipl)), new Vector2(SCALE, SCALE_AFTER_X* (1/ScaleMultipl)));
+                Trapezio1.ScaleVec(OsbEasing.InOutExpo, i, i + BeatTime, new Vector2(SCALE, SCALE_BEFORE_X ), new Vector2(SCALE, SCALE_AFTER_X));
+                Trapezio2.ScaleVec(OsbEasing.InOutExpo, i, i + BeatTime, new Vector2(SCALE, SCALE_BEFORE_X), new Vector2(SCALE, SCALE_AFTER_X));
+                Trapezio3.ScaleVec(OsbEasing.InOutExpo, i, i + BeatTime, new Vector2(SCALE, SCALE_BEFORE_X), new Vector2(SCALE, SCALE_AFTER_X));
                 
                 LogoText.Scale(OsbEasing.In, i, i + BeatTime, 0.19f, 0.17f);
                 LogoTriangle.Scale(OsbEasing.InOutSine, i, i + BeatTime, 0.31f, 0.3f);
@@ -256,22 +329,22 @@ namespace StorybrewScripts
                 var AngleToFace = 150;
                 var CloneTrapezio = Layer.CreateSprite(TrapezioPath, OsbOrigin.Centre, TrapClone.PositionAt(i)); // (delta x = -100; delta y = -12)
                 CloneTrapezio.Rotate(i, TrapClone.RotationAt(i));
-                CloneTrapezio.ScaleVec(OsbEasing.InOutExpo, i, i + 30, new Vector2(SCALE, SCALE_BEFORE_X), new Vector2(SCALE, SCALE_AFTER_X * 2));
-                CloneTrapezio.Move(OsbEasing.InOutSine, i, i + BeatTime * 2, TrapClone.PositionAt(i), new Vector2(TrapClone.PositionAt(i).X + 1000 * Math.Cos(DegToRad(AngleToFace)),TrapClone.PositionAt(i).Y + 1000 * Math.Sin(DegToRad(-AngleToFace))));
+                CloneTrapezio.ScaleVec((OsbEasing) 0, i, i + BeatTime * 3, new Vector2(SCALE, SCALE_BEFORE_X), new Vector2(SCALE *3, SCALE_AFTER_X *3));
+                CloneTrapezio.Move((OsbEasing) 0, i, i + BeatTime * 3, TrapClone.PositionAt(i), new Vector2(TrapClone.PositionAt(i).X + 620 * Math.Cos(DegToRad(AngleToFace)),TrapClone.PositionAt(i).Y + 620 * Math.Sin(DegToRad(-AngleToFace))));
                 
                 TrapClone = Trapezio2;
                 AngleToFace = 30;
                 var CloneTrapezio1 = Layer.CreateSprite(TrapezioPath, OsbOrigin.Centre, TrapClone.PositionAt(i)); // (delta x = -100; delta y = -12)
                 CloneTrapezio1.Rotate(i, TrapClone.RotationAt(i));
-                CloneTrapezio1.ScaleVec(OsbEasing.InOutExpo, i, i + 30, new Vector2(SCALE, SCALE_BEFORE_X), new Vector2(SCALE, SCALE_AFTER_X * 2));
-                CloneTrapezio1.Move(OsbEasing.InOutSine, i, i + BeatTime * 2, TrapClone.PositionAt(i), new Vector2(TrapClone.PositionAt(i).X + 1000 * Math.Cos(DegToRad(AngleToFace)),TrapClone.PositionAt(i).Y + 1000 * Math.Sin(DegToRad(-AngleToFace))));
+                CloneTrapezio1.ScaleVec((OsbEasing) 0, i, i + BeatTime * 3, new Vector2(SCALE, SCALE_BEFORE_X), new Vector2(SCALE *3, SCALE_AFTER_X *3));
+                CloneTrapezio1.Move((OsbEasing) 0, i, i + BeatTime * 3, TrapClone.PositionAt(i), new Vector2(TrapClone.PositionAt(i).X + 620 * Math.Cos(DegToRad(AngleToFace)),TrapClone.PositionAt(i).Y + 620 * Math.Sin(DegToRad(-AngleToFace))));
                 
                 AngleToFace = -90;
                 TrapClone = Trapezio3;
                 var CloneTrapezio2 = Layer.CreateSprite(TrapezioPath, OsbOrigin.Centre, TrapClone.PositionAt(i)); // (delta x = -100; delta y = -12)
                 CloneTrapezio2.Rotate(i, TrapClone.RotationAt(i));
-                CloneTrapezio2.ScaleVec(OsbEasing.InOutExpo, i, i + 30, new Vector2(SCALE, SCALE_BEFORE_X), new Vector2(SCALE, SCALE_AFTER_X * 2));
-                CloneTrapezio2.Move(OsbEasing.InOutSine, i, i + BeatTime * 2, TrapClone.PositionAt(i), new Vector2(TrapClone.PositionAt(i).X + 1000 * Math.Cos(DegToRad(AngleToFace)),TrapClone.PositionAt(i).Y + 1000 * Math.Sin(DegToRad(-AngleToFace))));
+                CloneTrapezio2.ScaleVec((OsbEasing) 0, i, i + BeatTime * 3, new Vector2(SCALE, SCALE_BEFORE_X), new Vector2(SCALE *3, SCALE_AFTER_X *3));
+                CloneTrapezio2.Move((OsbEasing) 0, i, i + BeatTime * 3, TrapClone.PositionAt(i), new Vector2(TrapClone.PositionAt(i).X + 620 * Math.Cos(DegToRad(AngleToFace)),TrapClone.PositionAt(i).Y + 620 * Math.Sin(DegToRad(-AngleToFace))));
                 
                 FlashBG.Fade(OsbEasing.InQuad, i,i + BeatTime, FlashBG.OpacityAt(i), FlashBG.OpacityAt(i)+ 0.12 );
 
@@ -289,6 +362,16 @@ namespace StorybrewScripts
 
         double tick(double start, double divisor){
             return Beatmap.GetTimingPointAt((int)start).BeatDuration / divisor;
+        }
+
+        Vector2 GetRandomPositionFromRadius(Vector2 StartPosition, int Radius) {
+            float x,y;
+            do {
+                double RandomAngle = MathHelper.DegreesToRadians(Random(0,360));
+                x = (float)(Radius * Math.Cos(RandomAngle) + StartPosition.X);
+                y = (float)(Radius * Math.Sin(RandomAngle) + StartPosition.Y);
+            } while ((x < 75 || x > 580) || ((y<140) || y> 340));
+            return new Vector2(x, y);
         }
         static double DegToRad(double degrees)
         {
