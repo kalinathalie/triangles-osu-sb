@@ -4,10 +4,10 @@ Script: "Aspirador"
 Config:
   StartTime:
     Type: "System.Int32"
-    Value: "0"
+    Value: "15011"
   EndTime:
     Type: "System.Int32"
-    Value: "0"
+    Value: "23636"
   Triangle1:
     Type: "System.String"
     Value: "sb/triangle-128.png"
