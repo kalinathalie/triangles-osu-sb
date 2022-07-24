@@ -4,9 +4,9 @@ BeatmapName: "easy"
 Assemblies:
 Layers:
   - "252ee4f320c343afb79b812ea77b029e"
-  - "f5b6a13861384ff7843de969d6eb581d"
   - "f639499da6b749aa92381e3f3d10dc48"
   - "b60f93b5ef1942a79b4ca5e848c9d723"
+  - "21ec2ca064854808888e8a490fabacdf"
   - "bd70ab55fb1e49189e094e8f371bc6d6"
   - "c0b2b4d607f643c89ac09b7e869ec128"
   - "ca835a06418c4d2cae2096245ebc0bd5"
@@ -16,3 +16,5 @@ Layers:
   - "7dee14102f524dacb44874dc7219da1c"
   - "1f1e52c1f6b94d3b84008f60913d12ee"
   - "fadd10b48b614712adae217b2891f1d3"
+  - "44dabd31c3894b58bd9689faff67feb9"
+  - "43976f1f34984fd1817dfe08194e1d2e"

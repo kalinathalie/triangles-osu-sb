@@ -1,13 +1,13 @@
 ﻿FormatVersion: 7
-Name: "Aspirador 1"
+Name: "Aspirador 2"
 Script: "Aspirador"
 Config:
   StartTime:
     Type: "System.Int32"
-    Value: "15199"
+    Value: "0"
   EndTime:
     Type: "System.Int32"
-    Value: "23824"
+    Value: "0"
   Triangle1:
     Type: "System.String"
     Value: "sb/triangle-128.png"
@@ -16,7 +16,7 @@ Config:
     Value: "sb/triangulo128.png"
   ParticleCount:
     Type: "System.Int32"
-    Value: "8"
+    Value: "16"
   Color:
     Type: "OpenTK.Graphics.Color4"
     Value: "1,1,1,1"
@@ -28,7 +28,7 @@ Config:
     Value: "0"
     DisplayName: "Random seed"
 Layers:
-  f5b6a13861384ff7843de969d6eb581d:
+  44dabd31c3894b58bd9689faff67feb9:
     Name: "Aspirador"
     OsbLayer: Background
     DiffSpecific: No

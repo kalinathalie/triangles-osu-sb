@@ -53,6 +53,7 @@
   -->
   <ItemGroup>
     <Compile Include="Aspirador.cs" />
+    <Compile Include="AspiraFinal.cs" />
     <Compile Include="Background.cs" />
     <Compile Include="CalmPart.cs" />
     <Compile Include="Kiai2.cs" />
