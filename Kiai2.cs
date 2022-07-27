@@ -145,15 +145,16 @@ namespace StorybrewScripts
             int run = 0;
             int trocaX = 0;
 
-            triangleR.Additive(98261, 0);
-            triangleG.Additive(98261, 0);
-            triangleB.Additive(98261, 0);
-            triangleR.Additive(110261, 0);
-            triangleG.Additive(110261, 0);
-            triangleB.Additive(110261, 0);
+            triangleR.Additive(98260, 98261);
+            triangleG.Additive(98260, 98261);
+            triangleB.Additive(98260, 98261);
+            triangleR.Additive(110260, 110261);
+            triangleG.Additive(110260, 110261);
+            triangleB.Additive(110260, 110261);
             triangleR.Additive(99011);
             triangleG.Additive(99011);
             triangleB.Additive(99011);
+            
             
             int run_rotate = 0;
             for(double tempo = StartTime; tempo<EndTime; tempo+=tick(0, 1)){
@@ -271,12 +272,6 @@ namespace StorybrewScripts
                 trapezioG.Scale((OsbEasing)Random(2,8), StartTime-tick(0,2), StartTime, Random(0.45f, 0.7f)+(x*0.047f), 0.4+(x*0.047f));
                 trapezioB.Scale((OsbEasing)Random(2,8), StartTime-tick(0,2), StartTime, Random(0.45f, 0.7f)+(x*0.047f), 0.4+(x*0.047f));
 
-                trapezioR.Additive(86261);
-                trapezioG.Additive(86261);
-                trapezioB.Additive(86261);
-                trapezioR.Additive(99011);
-                trapezioG.Additive(99011);
-                trapezioB.Additive(99011);
                 trapezioR.Fade(86261, 1);
                 trapezioG.Fade(86261, 1);
                 trapezioB.Fade(86261, 1);
@@ -295,6 +290,14 @@ namespace StorybrewScripts
                 trapezioR.Color(105386, new Color4(255, 0, 0, 255));
                 trapezioG.Color(105386, new Color4(0, 255, 0, 255));
                 trapezioB.Color(105386, new Color4(0, 0, 255, 255));
+
+                trapezioR.Additive(86261);
+                trapezioG.Additive(86261);
+                trapezioB.Additive(86261);
+                trapezioR.Additive(99011);
+                trapezioG.Additive(99011);
+                trapezioB.Additive(99011);
+
                 for(double tempo = StartTime; tempo<=EndTime; tempo+=tick(0, 1)){
                     if(tempo==105011){
                         trapezioR.Color(tempo, new Color4(255, 130, 170, 255));
@@ -311,9 +314,9 @@ namespace StorybrewScripts
                     }
                     if(tempo==98261 || tempo==98636 || tempo==110261 || tempo==110636){
                         if(x==0 || x==1){
-                            trapezioR.Additive(tempo+tick(0,4), 0);
-                            trapezioG.Additive(tempo+tick(0,4), 0);
-                            trapezioB.Additive(tempo+tick(0,4), 0);
+                            trapezioR.Additive(tempo, tempo+tick(0,4));
+                            trapezioG.Additive(tempo, tempo+tick(0,4));
+                            trapezioB.Additive(tempo, tempo+tick(0,4));
                             trapezioR.Color(tempo+tick(0,4), new Color4(255, 130, 170, 255));
                             trapezioR.Color(tempo+tick(0,2), new Color4(255, 255, 255, 255));
                             trapezioG.Color(tempo+tick(0,4), new Color4(255, 130, 170, 255));
@@ -321,9 +324,9 @@ namespace StorybrewScripts
                             trapezioB.Color(tempo+tick(0,4), new Color4(255, 130, 170, 255));
                             trapezioB.Color(tempo+tick(0,2), new Color4(255, 255, 255, 255));
                         }else if(x==3 || x==4 || x==5){
-                            trapezioR.Additive(tempo+tick(0,2), 0);
-                            trapezioG.Additive(tempo+tick(0,2), 0);
-                            trapezioB.Additive(tempo+tick(0,2), 0);
+                            trapezioR.Additive(tempo, tempo+tick(0,2));
+                            trapezioG.Additive(tempo, tempo+tick(0,2));
+                            trapezioB.Additive(tempo, tempo+tick(0,2));
                             trapezioR.Color(tempo+tick(0,2), new Color4(255, 130, 170, 255));
                             trapezioR.Color(tempo+tick(0,2)+tick(0,4), new Color4(255, 255, 255, 255));
                             trapezioG.Color(tempo+tick(0,2), new Color4(255, 130, 170, 255));
@@ -331,9 +334,9 @@ namespace StorybrewScripts
                             trapezioB.Color(tempo+tick(0,2), new Color4(255, 130, 170, 255));
                             trapezioB.Color(tempo+tick(0,2)+tick(0,4), new Color4(255, 255, 255, 255));
                         }else{
-                            trapezioR.Additive(tempo+tick(0,2)+tick(0,4), 0);
-                            trapezioG.Additive(tempo+tick(0,2)+tick(0,4), 0);
-                            trapezioB.Additive(tempo+tick(0,2)+tick(0,4), 0);
+                            trapezioR.Additive(tempo, tempo+tick(0,2)+tick(0,4));
+                            trapezioG.Additive(tempo, tempo+tick(0,2)+tick(0,4));
+                            trapezioB.Additive(tempo, tempo+tick(0,2)+tick(0,4));
                             trapezioR.Color(tempo+tick(0,2)+tick(0,4), new Color4(255, 130, 170, 255));
                             trapezioR.Color(tempo+tick(0,1), new Color4(255, 255, 255, 255));
                             trapezioG.Color(tempo+tick(0,2)+tick(0,4), new Color4(255, 130, 170, 255));
