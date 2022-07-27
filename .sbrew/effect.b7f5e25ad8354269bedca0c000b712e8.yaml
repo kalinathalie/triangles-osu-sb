@@ -7,16 +7,16 @@ Config:
     Value: "sb/logo.png"
   Taiko:
     Type: "System.String"
-    Value: "sb/f/0044.png"
+    Value: "sb/fw/0044.png"
   Mania:
     Type: "System.String"
-    Value: "sb/f/0043.png"
+    Value: "sb/fw/0043.png"
   Ctb:
     Type: "System.String"
-    Value: "sb/f/0042.png"
+    Value: "sb/fw/0042.png"
   Std:
     Type: "System.String"
-    Value: "sb/f/0041.png"
+    Value: "sb/fw/0041.png"
   Triangle:
     Type: "System.String"
     Value: "sb/triangle-128.png"

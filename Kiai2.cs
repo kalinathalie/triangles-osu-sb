@@ -206,9 +206,12 @@ namespace StorybrewScripts
 
                 Y_trapezio = 255.0f+(x*15.9f);
                 trapezio.Move((OsbEasing)7, 75011, 84011, new Vector2(320, Y_trapezio+250), new Vector2(320, Y_trapezio));
+                trapezio.Move((OsbEasing)4, 111014, 121514, new Vector2(320, Y_trapezio), new Vector2(320, Y_trapezio+420));
                 trapezio.Scale(75011, 0.4+(x*0.047f));
                 trapezio.Fade(75011, 1);
                 trapezio.Fade(86261, 0);
+                trapezio.Fade(111014, 1);
+                trapezio.Fade(118514, 0);
 
                 if((int)x==0 || (int)x==1){
                     trapezio.Color((OsbEasing)12, 75011, 76886, Color, Color4.White);

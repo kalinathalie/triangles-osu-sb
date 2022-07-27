@@ -88,6 +88,9 @@ namespace StorybrewScripts
 
             var Vigbitmap = GetMapsetBitmap(VigBG);
 
+            var bar1 = Layer.CreateSprite(Flash,OsbOrigin.Centre);
+            var bar2 = Layer.CreateSprite(Flash,OsbOrigin.Centre);
+
             var LogoCircle = Layer.CreateSprite(LogoCirclePath, OsbOrigin.Centre); 
             var LogoText = Layer.CreateSprite(LogoTextPath, OsbOrigin.Centre); // (delta x =  0; delta y + 40)
             var LogoTriangle = Layer.CreateSprite(LogoTrianglePath, OsbOrigin.Centre, new Vector2(320, 200));
@@ -96,6 +99,20 @@ namespace StorybrewScripts
             var Trapezio3 = Layer.CreateSprite(TrapezioPath, OsbOrigin.Centre, new Vector2(320, 357)); // (delta x = 0; delta y = 157)
             var FlashBG = Layer.CreateSprite(Flash, OsbOrigin.Centre);
             var vig = Layer.CreateSprite(VigBG,OsbOrigin.Centre);
+
+            bar1.Color(37139, new Color4(0,0,0,255));
+            bar1.Scale(37139, 55);
+            bar1.MoveY((OsbEasing)7,37889, 38077, -35, -65);
+            bar1.MoveY((OsbEasing)7,38264, 38452, -65, -95);
+            bar1.MoveY((OsbEasing)7,38639, 38827, -95, -195);
+            bar1.MoveY((OsbEasing)7,38827, 39014, -195, -295);
+
+            bar2.Color(37139, new Color4(0,0,0,255));
+            bar2.Scale(37139, 55);
+            bar2.MoveY((OsbEasing)7,37889, 38077, 515, 545);
+            bar2.MoveY((OsbEasing)7,38264, 38452, 545, 575);
+            bar2.MoveY((OsbEasing)7,38639, 38827, 575, 675);
+            bar2.MoveY((OsbEasing)7,38827, 39014, 675, 795);
 
             Vector2 CenterPosition = new Vector2(320, 240);
 
@@ -109,13 +126,9 @@ namespace StorybrewScripts
 
             BackgroundTile2.ScaleVec(TrocaStartTime, new Vector2(2.0f, -2.0f));
             
-            BackgroundTile1.MoveY(TrocaStartTime, EndTime, 80, 300);
+            BackgroundTile1.MoveY(TrocaStartTime, EndTime, 0, 500);
 
-            BackgroundTile2.MoveY(TrocaStartTime, EndTime, 400, 200);
-
-            vig.Scale(StartTime, 540.0f / Vigbitmap.Height);
-            vig.Fade(StartTime, 0.4);
-            vig.Fade(EndTime, 0);
+            BackgroundTile2.MoveY(TrocaStartTime, EndTime, 1000, 0);
 
             float START_SCALE = 0.2f;
 
@@ -358,6 +371,9 @@ namespace StorybrewScripts
             LogoText.Fade(EndTime, 0);
             BackgroundTile2.Fade(EndTime, 0);
             LogoTriangle.Fade(EndTime, 0);
+            vig.Scale(StartTime, 540.0f / Vigbitmap.Height);
+            vig.Fade(StartTime, 0.65);
+            vig.Fade(EndTime-500, EndTime, 0.65, 0);
         }
 
         double tick(double start, double divisor){

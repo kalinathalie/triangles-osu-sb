@@ -189,10 +189,15 @@ namespace StorybrewScripts
             triangulao.Move((OsbEasing)4, 74261, 75011, new Vector2(320, 200), new Vector2(320, 420));
 
             triangulao.Move((OsbEasing)7, 75011, 84011, new Vector2(320, 420), new Vector2(320, 170));
+
+            triangulao.Move((OsbEasing)7, 111014, 121514, new Vector2(320, 100), new Vector2(320, 540));
+            triangulao.Fade(111014, 1);
+
             triangulao.Color((OsbEasing)4, 74636, 75386, new Color4(200, 20, 120, 255), new Color4(255, 255, 255, 255));
 
             triangulao.Color((OsbEasing)12, 77636, 78011, Color, Color4.White);
             triangulao.Color((OsbEasing)12, 83824, 84199, Color, Color4.White);
+            
             
             flashBG.Additive(StartTime);
 
